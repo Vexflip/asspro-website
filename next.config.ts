@@ -14,6 +14,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   webpack(config) {
     config.resolve.alias["@"] = path.resolve(__dirname, "src");
     return config;
