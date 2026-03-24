@@ -26,7 +26,7 @@ process.on('unhandledRejection', (reason) => {
 
 logError('Starting server...')
 
-const app = next({ dev, dir: __dirname })
+const app = next({ dev, dir: __dirname, webpack: true })
 const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
