@@ -10,7 +10,7 @@ export const navigation: NavItem[] = [
     href: "/a-propos",
     children: [
       { label: "Qui sommes-nous ?", href: "/a-propos" },
-      { label: "Prévention des risques", href: "/a-propos#prevention" },
+      { label: "La gouvernance", href: "/a-propos#gouvernance" },
       { label: "Partenaires", href: "/partenaires" },
     ],
   },
@@ -19,12 +19,12 @@ export const navigation: NavItem[] = [
     href: "/formations",
   },
   {
-    label: "ASSPRO Jeunes",
-    href: "/asspro-jeunes",
+    label: "Nos formateurs",
+    href: "/formateurs",
   },
   {
-    label: "Actualités",
-    href: "/actualites",
+    label: "Adhésion",
+    href: "/adhesion",
   },
   {
     label: "Contact",

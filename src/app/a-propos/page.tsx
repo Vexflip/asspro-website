@@ -7,13 +7,13 @@ import {
   HeartHandshake,
   Target,
   Users,
-  Award,
 } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
+import { boardMembers } from "@/data/governance";
 
 const values = [
   {
@@ -176,38 +176,30 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* Leadership */}
-      <section className="py-12 md:py-20 bg-surface">
+      {/* Governance */}
+      <section className="py-12 md:py-20 bg-surface" id="gouvernance">
         <div className="max-w-7xl mx-auto px-4">
           <SectionHeading
-            title="Notre équipe"
-            subtitle="Des professionnels engagés au service de la sécurité"
+            title="La gouvernance"
+            subtitle="Le conseil d'administration d'ASSPRO réunit des professionnels de santé engagés dans la prévention des risques opératoires."
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {[
-              {
-                name: "Dr Patrick-Georges Yavordios",
-                role: "Président",
-                icon: <Award className="w-6 h-6" />,
-              },
-              {
-                name: "Équipe Formation",
-                role: "Coordination pédagogique",
-                icon: <GraduationCap className="w-6 h-6" />,
-              },
-              {
-                name: "Équipe Médico-légale",
-                role: "Accompagnement 24/7",
-                icon: <Users className="w-6 h-6" />,
-              },
-            ].map((member, i) => (
-              <ScrollReveal key={member.name} delay={i * 0.1}>
-                <div className="bg-white rounded-xl p-8 text-center shadow-sm">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 text-primary">
-                    {member.icon}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {boardMembers.map((member, i) => (
+              <ScrollReveal key={member.name} delay={i * 0.08}>
+                <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                  <div className="relative h-56 w-full">
+                    <Image
+                      src={member.photo}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
-                  <h3 className="font-bold text-dark">{member.name}</h3>
-                  <p className="text-sm text-muted mt-1">{member.role}</p>
+                  <div className="p-6">
+                    <h3 className="font-bold text-dark text-lg">{member.name}</h3>
+                    <p className="text-primary text-sm font-medium mt-1">{member.title}</p>
+                    <p className="text-muted text-sm mt-3 leading-relaxed">{member.bio}</p>
+                  </div>
                 </div>
               </ScrollReveal>
             ))}
