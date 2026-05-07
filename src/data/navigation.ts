@@ -22,7 +22,7 @@ export const navigation: NavItem[] = [
     label: "Nos formateurs",
     href: "/formateurs",
   },
-  {
+{
     label: "Adhésion",
     href: "/adhesion",
   },

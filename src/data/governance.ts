@@ -1,51 +1,85 @@
 export interface BoardMember {
   name: string;
+  role?: string;
   title: string;
   photo: string;
-  bio: string;
+  linkedin?: string;
 }
 
 export const boardMembers: BoardMember[] = [
   {
     name: "Dr Patrick-Georges Yavordios",
-    title: "Président",
-    photo:
-      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop",
-    bio: "Anesthésiste-réanimateur, fondateur et président d'ASSPRO depuis plus de 20 ans. Pionnier de la formation à la prévention des risques opératoires en France.",
+    role: "Président d'Asspro",
+    title: "Anesthésiste-réanimateur",
+    photo: "/images/team/yavordios.jpg",
+    linkedin: "https://www.linkedin.com/in/patrick-georges-yavordios-807126160/",
   },
   {
-    name: "Dr Marie-Claire Dubois",
-    title: "Vice-présidente",
-    photo:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop",
-    bio: "Médecin anesthésiste-réanimatrice, responsable du programme ARRES et coordinatrice des formations en simulation.",
+    name: "Dr Frédéric Sailhan",
+    role: "Vice-Président d'Asspro",
+    title: "Chirurgien orthopédiste",
+    photo: "/images/team/sailhan.jpg",
+    linkedin: "https://www.linkedin.com/in/fr%C3%A9d%C3%A9ric-sailhan-68051116/",
   },
   {
-    name: "Dr François Lecomte",
-    title: "Secrétaire général",
-    photo:
-      "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&h=400&fit=crop",
-    bio: "Spécialiste en médecine légale et expert judiciaire, il supervise l'accompagnement médico-légal des adhérents.",
+    name: "Dr Antoine Watrelot",
+    role: "Secrétaire Général d'Asspro",
+    title: "Chirurgien gynécologue",
+    photo: "/images/team/silhouette.svg",
   },
   {
-    name: "Dr Sophie Marchand",
-    title: "Trésorière",
-    photo:
-      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=400&fit=crop",
-    bio: "Anesthésiste hospitalière et formatrice certifiée, elle gère les ressources de l'association et le suivi des partenariats.",
+    name: "Dr Jean Droguet",
+    role: "Trésorier d'Asspro",
+    title: "Anesthésiste-réanimateur",
+    photo: "/images/team/silhouette.svg",
   },
   {
-    name: "Dr Alain Ferreira",
-    title: "Administrateur – Formations",
-    photo:
-      "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&h=400&fit=crop",
-    bio: "Responsable de l'ingénierie pédagogique, il coordonne l'élaboration des modules de formation et la mise à jour des référentiels.",
+    name: "Dr Guillaume Bonnaud",
+    title: "Hépatogastroentérologue",
+    photo: "/images/team/bonnaud.png",
+    linkedin: "https://www.linkedin.com/in/gbonnaud/",
   },
   {
-    name: "Dr Isabelle Renaud",
-    title: "Administratrice – ASSPRO Jeunes",
-    photo:
-      "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=400&h=400&fit=crop",
-    bio: "Coordinatrice du programme ASSPRO Jeunes, elle accompagne les internes et jeunes praticiens dans leur intégration professionnelle.",
+    name: "Pr Hervé Bouaziz",
+    title: "Anesthésiste-réanimateur",
+    photo: "/images/team/silhouette.svg",
+  },
+  {
+    name: "Dr Matthieu Closon",
+    title: "Anesthésiste-réanimateur",
+    photo: "/images/team/silhouette.svg",
+  },
+  {
+    name: "Dr Jean-Michel Dreyfus",
+    title: "Chirurgien gynécologue-obstétricien",
+    photo: "/images/team/silhouette.svg",
+  },
+  {
+    name: "Dr Christophe Lebrun",
+    title: "Chirurgien orthopédiste",
+    photo: "/images/team/silhouette.svg",
+  },
+  {
+    name: "Dr Laurence Maulin",
+    title: "Infectiologue",
+    photo: "/images/team/maulin.jpg",
+    linkedin: "https://www.linkedin.com/in/laurence-maulin-52102b6a/",
+  },
+  {
+    name: "Dr Thong Nguyen",
+    title: "Chirurgien plastique",
+    photo: "/images/team/silhouette.svg",
+  },
+  {
+    name: "Pr Laurent Obert",
+    title: "Chirurgien orthopédiste",
+    photo: "/images/team/obert.jpg",
+    linkedin: "https://www.linkedin.com/in/laurent-obert-997468a0/",
+  },
+  {
+    name: "Pr Julien Picard",
+    title: "Anesthésiste-réanimateur",
+    photo: "/images/team/picard.jpg",
+    linkedin: "https://www.linkedin.com/in/julien-picard-661213152/",
   },
 ];

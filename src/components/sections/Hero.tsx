@@ -37,10 +37,9 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif leading-tight mb-6"
         >
-          Prévention et maîtrise
+          Une association de médecins,
           <br />
-          des risques au bloc
-          opératoire
+          pour les médecins
         </motion.h1>
 
         <motion.p
@@ -49,8 +48,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-base md:text-xl text-white/80 max-w-2xl mx-auto mb-8 md:mb-10 px-2"
         >
-          Formation, accompagnement médico-légal et ressources pour les
-          praticiens du bloc opératoire
+          Pour une meilleure prévention des risques au bloc opératoire
         </motion.p>
 
         <motion.div
