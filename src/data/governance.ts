@@ -25,7 +25,7 @@ export const boardMembers: BoardMember[] = [
     name: "Dr Antoine Watrelot",
     role: "Secrétaire Général d'Asspro",
     title: "Chirurgien gynécologue",
-    photo: "/images/team/silhouette.svg",
+    photo: "/images/team/watrelot.png",
   },
   {
     name: "Dr Jean Droguet",
