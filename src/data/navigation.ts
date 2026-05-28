@@ -18,10 +18,8 @@ export const navigation: NavItem[] = [
     label: "Formations",
     href: "/formations",
   },
-  {
-    label: "Nos formateurs",
-    href: "/formateurs",
-  },
+
+
 {
     label: "Adhésion",
     href: "/adhesion",

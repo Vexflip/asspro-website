@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { Menu, ChevronDown } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { Menu, ChevronDown, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navigation } from "@/data/navigation";
 import MobileMenu from "./MobileMenu";
@@ -14,6 +14,16 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const q = formData.get("q");
+    if (q) {
+      router.push(`/recherche?q=${encodeURIComponent(q.toString())}`);
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -92,6 +102,25 @@ export default function Navbar() {
 
           {/* CTAs + Mobile toggle */}
           <div className="flex items-center gap-3">
+            <form 
+              onSubmit={handleSearch}
+              className={cn(
+                "hidden md:flex items-center px-3 py-2 rounded-lg transition-all border",
+                scrolled 
+                  ? "bg-surface border-gray-200 focus-within:border-primary focus-within:bg-white text-dark" 
+                  : "bg-white/10 border-transparent focus-within:bg-white focus-within:text-dark text-white"
+              )}>
+                <Search className="w-4 h-4 opacity-70 shrink-0" />
+                <input 
+                  type="text" 
+                  name="q"
+                  placeholder="Recherche..." 
+                  className={cn(
+                    "bg-transparent border-none outline-none ml-2 text-sm w-28 lg:w-32 focus:w-40 lg:focus:w-48 transition-all",
+                    scrolled ? "placeholder:text-gray-500" : "placeholder:text-white/70 focus:placeholder:text-gray-500"
+                  )}
+                />
+            </form>
             <a
               href="https://www.linkedin.com/company/asspro/"
               target="_blank"

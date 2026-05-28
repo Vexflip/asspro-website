@@ -57,9 +57,6 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <Button href="/formations" size="lg" variant="white">
-            Nos formations
-          </Button>
           <Button href="/contact" size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
             Nous contacter
           </Button>

@@ -103,9 +103,9 @@ export default function AProposPage() {
                 Notre mission
               </h2>
               <p className="text-muted leading-relaxed mb-4">
-                ASSPRO (Association des Anesthésistes-Réanimateurs pour la
-                Prévention des Risques Opératoires) est une association dédiée à
-                la prévention et à la maîtrise des risques au bloc opératoire.
+                ASSPRO (Association Spéciale de prévention du Risque Opératoire)
+                est une association dédiée à la prévention et à la maîtrise
+                des risques au bloc opératoire.
               </p>
               <p className="text-muted leading-relaxed mb-4">
                 Notre engagement repose sur trois piliers fondamentaux : la

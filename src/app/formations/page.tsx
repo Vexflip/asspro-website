@@ -16,6 +16,8 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
+import TrainingAgenda from "@/components/sections/TrainingAgenda";
+import TrainingCatalogue from "@/components/sections/TrainingCatalogue";
 import { formations, categoryLabels } from "@/data/formations";
 import type { Training } from "@/types";
 
@@ -44,6 +46,9 @@ export default function FormationsPage() {
         subtitle="Des programmes de formation innovants pour les professionnels du bloc opératoire"
       />
 
+      <TrainingAgenda />
+      <TrainingCatalogue />
+
       {/* Filter tabs + Grid */}
       <section className="py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4">
@@ -69,8 +74,8 @@ export default function FormationsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((formation, i) => (
               <ScrollReveal key={formation.id} delay={i * 0.05}>
-                <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 overflow-hidden group">
-                  <div className="relative h-48 overflow-hidden">
+                <div className="h-full flex flex-col bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 overflow-hidden group">
+                  <div className="relative h-48 shrink-0 overflow-hidden">
                     <Image
                       src={formation.image}
                       alt={formation.title}
@@ -78,17 +83,17 @@ export default function FormationsPage() {
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute top-3 left-3">
-                      <Badge>{categoryLabels[formation.category]}</Badge>
+                      <Badge variant="solid">{categoryLabels[formation.category]}</Badge>
                     </div>
                   </div>
-                  <div className="p-6">
+                  <div className="p-6 flex flex-col flex-1">
                     <h3 className="font-bold text-dark mb-3 group-hover:text-primary transition-colors line-clamp-2">
                       {formation.title}
                     </h3>
                     <p className="text-sm text-muted mb-4 line-clamp-2">
                       {formation.description}
                     </p>
-                    <div className="space-y-2 text-sm text-muted mb-4">
+                    <div className="space-y-2 text-sm text-muted mb-4 flex-1">
                       <p className="flex items-center gap-2">
                         <Calendar className="w-4 h-4 shrink-0" />
                         {formation.date}
@@ -102,7 +107,7 @@ export default function FormationsPage() {
                         {formation.duration}
                       </p>
                     </div>
-                    <Button size="sm" className="w-full">
+                    <Button size="sm" className="w-full mt-auto">
                       En savoir plus
                     </Button>
                   </div>

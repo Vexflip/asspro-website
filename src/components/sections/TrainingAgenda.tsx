@@ -9,7 +9,7 @@ import { formations } from "@/data/formations";
 import { categoryLabels } from "@/data/formations";
 
 export default function TrainingAgenda() {
-  const upcoming = formations.filter((f) => f.location !== "En ligne").slice(0, 4);
+  const upcoming = formations.filter((f) => f.location !== "En ligne").slice(0, 3);
 
   return (
     <section className="py-12 md:py-20">
@@ -19,34 +19,36 @@ export default function TrainingAgenda() {
           subtitle="Découvrez nos formations à venir et inscrivez-vous dès maintenant"
         />
 
-        <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {upcoming.map((formation, i) => (
-            <ScrollReveal key={formation.id} delay={i * 0.1} className="snap-start">
-              <div className="w-72 sm:w-80 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 overflow-hidden group">
+            <ScrollReveal key={formation.id} delay={i * 0.1}>
+              <div className="h-full flex flex-col bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 overflow-hidden group">
                 <div
-                  className="h-40 bg-cover bg-center"
+                  className="h-40 bg-cover bg-center shrink-0"
                   style={{ backgroundImage: `url(${formation.image})` }}
                 />
-                <div className="p-5">
-                  <Badge variant="primary">{categoryLabels[formation.category]}</Badge>
+                <div className="p-5 flex flex-col flex-1">
+                  <div>
+                    <Badge variant="primary">{categoryLabels[formation.category]}</Badge>
+                  </div>
                   <h3 className="text-base font-bold text-dark mt-2 mb-3 line-clamp-2 group-hover:text-primary transition-colors">
                     {formation.title}
                   </h3>
-                  <div className="space-y-1 text-sm text-muted">
+                  <div className="space-y-1 text-sm text-muted mb-4 flex-1">
                     <p className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4" />
+                      <Calendar className="w-4 h-4 shrink-0" />
                       {formation.date}
                     </p>
                     <p className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4" />
+                      <MapPin className="w-4 h-4 shrink-0" />
                       {formation.location}
                     </p>
                     <p className="flex items-center gap-2">
-                      <Clock className="w-4 h-4" />
+                      <Clock className="w-4 h-4 shrink-0" />
                       {formation.duration}
                     </p>
                   </div>
-                  <Button href="/formations" size="sm" className="mt-4 w-full">
+                  <Button href="/formations" size="sm" className="mt-auto w-full">
                     S&apos;inscrire
                   </Button>
                 </div>

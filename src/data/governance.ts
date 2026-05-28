@@ -52,12 +52,13 @@ export const boardMembers: BoardMember[] = [
   {
     name: "Dr Jean-Michel Dreyfus",
     title: "Chirurgien gynécologue-obstétricien",
-    photo: "/images/team/silhouette.svg",
+    photo: "/images/team/dreyfus.JPG",
   },
   {
     name: "Dr Christophe Lebrun",
     title: "Chirurgien orthopédiste",
-    photo: "/images/team/silhouette.svg",
+    photo: "/images/team/lebrun.jpg",
+    linkedin: "https://www.linkedin.com/in/christophe-lebrun-90b09261/",
   },
   {
     name: "Dr Laurence Maulin",
@@ -81,5 +82,11 @@ export const boardMembers: BoardMember[] = [
     title: "Anesthésiste-réanimateur",
     photo: "/images/team/picard.jpg",
     linkedin: "https://www.linkedin.com/in/julien-picard-661213152/",
+  },
+  {
+    name: "Pr Morgan Roupret",
+    title: "Chirurgien urologue",
+    photo: "/images/team/roupret.jpg",
+    linkedin: "https://www.linkedin.com/in/morgan-roupr%C3%AAt-aba167135/",
   },
 ];

@@ -11,6 +11,7 @@ const variants = {
   accent: "bg-accent/10 text-accent",
   teal: "bg-accent-teal/10 text-accent-teal",
   muted: "bg-surface text-muted",
+  solid: "bg-primary/30 border border-primary text-white shadow-sm backdrop-blur-md",
 };
 
 export default function Badge({ children, variant = "primary", className }: BadgeProps) {

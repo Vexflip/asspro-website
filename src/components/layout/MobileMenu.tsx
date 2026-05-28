@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, Phone, AlertTriangle, X } from "lucide-react";
+import { ChevronDown, Phone, AlertTriangle, X, Search } from "lucide-react";
 import { navigation } from "@/data/navigation";
 
 interface MobileMenuProps {
@@ -11,8 +11,21 @@ interface MobileMenuProps {
   onClose: () => void;
 }
 
+import { useRouter } from "next/navigation";
+
 export default function MobileMenu({ open, onClose }: MobileMenuProps) {
   const [expanded, setExpanded] = useState<string | null>(null);
+  const router = useRouter();
+
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const q = formData.get("q");
+    if (q) {
+      onClose();
+      router.push(`/recherche?q=${encodeURIComponent(q.toString())}`);
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -43,6 +56,17 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
               </button>
             </div>
             <div className="p-6 pt-16">
+              <div className="mb-6">
+                <form onSubmit={handleSearch} className="flex items-center bg-surface rounded-lg px-3 py-3 border border-transparent focus-within:border-primary focus-within:bg-white transition-all">
+                  <Search className="w-5 h-5 text-muted shrink-0" />
+                  <input 
+                    type="text" 
+                    name="q"
+                    placeholder="Recherche..." 
+                    className="bg-transparent border-none outline-none ml-3 text-base w-full text-dark placeholder:text-muted"
+                  />
+                </form>
+              </div>
               <div className="space-y-1">
                 {navigation.map((item) => (
                   <div key={item.href}>
