@@ -30,11 +30,30 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Nuke the native WebKit scrollbar completely to prevent any FOUC */
+::-webkit-scrollbar {
+  display: none;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Custom OverlayScrollbar Theme */
+.os-theme-asspro {
+  --os-size: 14px;
+  --os-padding-perpendicular: 2px;
+  --os-padding-axis: 2px;
+  --os-track-border-radius: 10px;
+  --os-handle-interactive-area-offset: 4px;
+  --os-handle-border-radius: 10px;
+  --os-handle-bg: var(--color-muted);
+  --os-handle-bg-hover: var(--color-primary);
+  --os-handle-bg-active: var(--color-primary-light);
 }
