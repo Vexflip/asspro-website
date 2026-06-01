@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
@@ -7,6 +6,12 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Badge from "@/components/ui/Badge";
 import { newsArticles } from "@/data/news";
+
+export const metadata: Metadata = {
+  title: "Actualités",
+  description:
+    "Les dernières nouvelles d'ASSPRO : prévention des risques, formations, événements et actualités du bloc opératoire.",
+};
 
 export default function ActualitesPage() {
   return (
@@ -29,6 +34,7 @@ export default function ActualitesPage() {
                     src={newsArticles[0].image}
                     alt={newsArticles[0].title}
                     fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -63,6 +69,7 @@ export default function ActualitesPage() {
                       src={article.image}
                       alt={article.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>

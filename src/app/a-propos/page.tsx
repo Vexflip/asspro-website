@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import Image from "next/image";
 import {
   Shield,
@@ -14,6 +13,12 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { boardMembers } from "@/data/governance";
+
+export const metadata: Metadata = {
+  title: "À propos",
+  description:
+    "Découvrez ASSPRO, notre mission, nos valeurs, notre histoire et l'équipe engagée dans la prévention des risques au bloc opératoire.",
+};
 
 const values = [
   {
@@ -94,6 +99,7 @@ export default function AProposPage() {
                   src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&h=600&fit=crop"
                   alt="Équipe médicale"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
@@ -192,6 +198,7 @@ export default function AProposPage() {
                       src={member.photo}
                       alt={member.name}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover object-center"
                       unoptimized
                     />
@@ -271,6 +278,7 @@ export default function AProposPage() {
                   src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop"
                   alt="Gestion des risques au bloc opératoire"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>

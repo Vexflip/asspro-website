@@ -13,6 +13,7 @@ export default function Hero() {
         alt="Équipe chirurgicale au bloc opératoire"
         fill
         priority
+        sizes="100vw"
         className="object-cover"
         unoptimized
       />

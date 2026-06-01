@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import Image from "next/image";
 import {
   Building2,
@@ -16,6 +15,12 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 import { guides } from "@/data/guides";
+
+export const metadata: Metadata = {
+  title: "ASSPRO Jeunes",
+  description:
+    "La communauté des jeunes médecins du bloc opératoire. Guides pratiques, événements et accompagnement pour bien démarrer votre carrière.",
+};
 
 const iconMap: Record<string, React.ReactNode> = {
   Building2: <Building2 className="w-6 h-6" />,
@@ -93,6 +98,7 @@ export default function AssproJeunesPage() {
                   src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&h=600&fit=crop"
                   alt="Jeunes médecins en formation"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>

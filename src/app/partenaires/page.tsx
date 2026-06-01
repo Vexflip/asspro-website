@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import Image from "next/image";
 import { ExternalLink, Handshake } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
@@ -7,6 +6,12 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 import { partners } from "@/data/partners";
+
+export const metadata: Metadata = {
+  title: "Nos Partenaires",
+  description:
+    "Découvrez les partenaires d'ASSPRO engagés dans la sécurité et la qualité des soins au bloc opératoire.",
+};
 
 export default function PartenairesPage() {
   const featured = partners.filter((p) => p.featured);
@@ -35,6 +40,7 @@ export default function PartenairesPage() {
                     src={partner.logo}
                     alt={partner.name}
                     fill
+                    sizes="192px"
                     className="object-contain"
                   />
                 </div>
@@ -76,6 +82,7 @@ export default function PartenairesPage() {
                       src={partner.logo}
                       alt={partner.name}
                       fill
+                      sizes="96px"
                       className="object-contain"
                     />
                   </div>

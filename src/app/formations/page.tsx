@@ -80,6 +80,7 @@ export default function FormationsPage() {
                       src={formation.image}
                       alt={formation.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute top-3 left-3">
@@ -134,6 +135,7 @@ export default function FormationsPage() {
                   src="https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?w=800&h=600&fit=crop"
                   alt="ASSPRO Truck"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>

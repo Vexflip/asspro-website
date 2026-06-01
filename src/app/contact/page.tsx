@@ -1,4 +1,4 @@
-"use client";
+import type { Metadata } from "next";
 
 import {
   Phone,
@@ -9,6 +9,12 @@ import {
 import PageHero from "@/components/ui/PageHero";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import ContactForm from "@/components/ui/ContactForm";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Contactez ASSPRO pour vos questions sur la prévention des risques, les formations ou l'accompagnement médico-légal. Urgence 24/7.",
+};
 
 export default function ContactPage() {
   return (
