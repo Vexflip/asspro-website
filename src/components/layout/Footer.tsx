@@ -125,13 +125,13 @@ export default function Footer() {
               </svg>
               LinkedIn
             </a>
-            <Link href="#" className="hover:text-white transition-colors">
+            <Link href="/mentions-legales" className="hover:text-white transition-colors">
               Mentions légales
             </Link>
-            <Link href="#" className="hover:text-white transition-colors">
+            <Link href="/conditions-generales" className="hover:text-white transition-colors">
               Conditions générales
             </Link>
-            <Link href="#" className="hover:text-white transition-colors">
+            <Link href="/plan-du-site" className="hover:text-white transition-colors">
               Plan du site
             </Link>
           </div>
