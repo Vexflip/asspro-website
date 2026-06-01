@@ -27,8 +27,20 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    onScroll(); // Call immediately to set correct initial state on refresh
+    
+    // Mobile browsers often restore scroll position asynchronously after paint
+    const t1 = setTimeout(onScroll, 50);
+    const t2 = setTimeout(onScroll, 500);
+    const t3 = setTimeout(onScroll, 1500);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (

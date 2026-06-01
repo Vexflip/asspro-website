@@ -6,7 +6,7 @@ import Button from "@/components/ui/Button";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
       {/* Background image — replace /images/hero-bg.webp with local file when available */}
       <Image
         src="/images/hero-bg.webp"

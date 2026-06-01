@@ -24,7 +24,7 @@ export default function WelcomeScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="fixed top-0 left-0 w-screen h-screen z-[100] flex flex-row items-center justify-center bg-dark gap-2 sm:gap-4"
+          className="fixed top-0 left-0 w-full h-[100dvh] z-[100] flex flex-col sm:flex-row items-center justify-center bg-dark gap-2 sm:gap-4"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
