@@ -86,7 +86,7 @@ function SearchResults() {
           {!q ? (
             <div className="text-center text-muted">Veuillez entrer un terme de recherche.</div>
           ) : matchedFormations.length === 0 && matchedNews.length === 0 ? (
-            <div className="text-center text-muted">Aucun résultat trouvé pour "{q}".</div>
+            <div className="text-center text-muted">Aucun résultat trouvé pour &quot;{q}&quot;.</div>
           ) : (
             <div className="space-y-12">
               {matchedFormations.length > 0 && (
