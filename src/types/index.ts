@@ -25,13 +25,6 @@ export interface NewsArticle {
   slug: string;
 }
 
-export interface Testimonial {
-  id: string;
-  quote: string;
-  author: string;
-  role: string;
-  specialty: string;
-}
 
 export interface Guide {
   id: string;
