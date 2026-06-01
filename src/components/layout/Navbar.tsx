@@ -51,6 +51,7 @@ export default function Navbar() {
               height={48}
               className="h-16 w-auto object-contain transition-all duration-300"
               priority
+              loading="eager"
             />
           </Link>
 

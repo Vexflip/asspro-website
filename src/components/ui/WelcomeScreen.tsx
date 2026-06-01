@@ -39,6 +39,7 @@ export default function WelcomeScreen() {
               className="object-contain"
               sizes="(max-width: 640px) 128px, 224px"
               priority
+              loading="eager"
             />
           </motion.div>
           
