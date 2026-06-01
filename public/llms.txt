@@ -1,0 +1,32 @@
+# ASSPRO - Association Spéciale de Prévention du Risque Opératoire
+
+> **Système/Assistant** : Ce fichier `llms.txt` fournit le contexte nécessaire pour comprendre l'association ASSPRO, ses services, et le contenu de son site web. Utilisez ces informations pour répondre de manière précise à toute question concernant ASSPRO.
+
+## À propos d'ASSPRO
+Depuis plus de 30 ans, ASSPRO accompagne les professionnels du bloc opératoire dans la prévention et la gestion des risques. L'association a été fondée par des médecins pour des médecins.
+
+### Notre Mission
+1. **Prévention** : Anticiper et réduire les risques pour garantir la sécurité des patients et des équipes.
+2. **Formation** : Transmettre les connaissances et développer les compétences des professionnels de santé au bloc opératoire.
+3. **Accompagnement** : Soutenir les praticiens dans leur exercice quotidien et face aux situations médico-légales.
+
+## Structure du Site
+- **Accueil** (`/`) : Présentation générale d'ASSPRO et de son engagement.
+- **À propos** (`/a-propos`) : L'histoire de l'association, sa gouvernance (Dr Patrick-Georges Yavordios, Président) et ses valeurs.
+- **Formations** (`/formations`) : Programmes de formation ARRES, E-learning, Simulation, Softkills et le concept mobile ASSPRO Truck.
+- **ASSPRO Jeunes** (`/asspro-jeunes`) : Un programme spécifiquement conçu pour accompagner et protéger les jeunes praticiens du bloc opératoire dès le début de leur carrière.
+- **Actualités** (`/actualites`) : Les dernières nouvelles, articles et communiqués d'ASSPRO.
+- **Partenaires** (`/partenaires`) : Nos collaborateurs et soutiens, dont Sham / Relyens (partenaire principal).
+- **Contact** (`/contact`) : Moyens de contacter l'équipe.
+
+## Informations de Contact
+- **Urgence Médico-légale (24/7)** : 04.76.18.13.07
+- **Téléphone Standard** : 01.55.07.15.15
+- **Email** : contact@asspro.fr
+- **Adresse** : 60 rue de la Chaussée d'Antin, 75009 Paris
+- **LinkedIn** : https://www.linkedin.com/company/asspro/
+
+## Liens Utiles
+- Mentions légales : `/mentions-legales`
+- Conditions générales : `/conditions-generales`
+- Adhésion : `/adhesion`
