@@ -17,7 +17,13 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-    webpack(config) {
+  experimental: {
+    // Limits the number of build workers to prevent Out Of Memory (OOM) errors
+    // on servers with many CPU cores but limited RAM.
+    cpus: 1,
+    workerThreads: false,
+  },
+  webpack(config) {
     config.resolve.alias["@"] = path.resolve(__dirname, "src");
     return config;
   },
