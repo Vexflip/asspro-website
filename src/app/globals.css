@@ -51,7 +51,7 @@ body {
 
 /* Custom OverlayScrollbar Theme */
 .os-theme-asspro {
-  --os-size: 14px;
+  --os-size: 8px;
   --os-padding-perpendicular: 2px;
   --os-padding-axis: 2px;
   --os-track-border-radius: 10px;

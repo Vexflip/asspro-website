@@ -18,14 +18,7 @@ export default function GlobalScrollbar() {
 
   useEffect(() => {
     // Initialize OverlayScrollbars globally on the body element
-    // Only on desktop, as mobile native scrollbars are already optimized and overlay plugins often break mobile viewports
-    const isTouchDevice =
-      typeof window !== 'undefined' &&
-      ('ontouchstart' in window || navigator.maxTouchPoints > 0);
-
-    if (!isTouchDevice) {
-      initialize(document.body);
-    }
+    initialize(document.body);
   }, [initialize]);
 
   return null;
