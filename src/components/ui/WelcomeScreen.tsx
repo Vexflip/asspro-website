@@ -33,7 +33,7 @@ export default function WelcomeScreen() {
             className="relative w-32 h-12 sm:w-56 sm:h-20 shrink-0"
           >
             <Image
-              src="/images/logo-dark-bg.png"
+              src="/images/logo-dark-bg.webp"
               alt="ASSPRO Logo"
               fill
               className="object-contain"

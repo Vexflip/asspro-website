@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface PageHeroProps {
   title: string;
   subtitle?: string;
@@ -7,13 +9,16 @@ export default function PageHero({ title, subtitle }: PageHeroProps) {
   return (
     <section className="relative pt-32 pb-20 overflow-hidden">
       {/* Background image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1920&q=80')",
-        }}
-      />
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero-bg.webp"
+          alt="Page Hero Background"
+          fill
+          priority
+          fetchPriority="high"
+          className="object-cover"
+        />
+      </div>
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-dark/85 via-primary/75 to-dark/85" />
 

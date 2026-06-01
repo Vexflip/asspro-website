@@ -69,7 +69,7 @@ export default function MentionsLegalesPage() {
                   <span className="text-muted">
                     <a
                       href="tel:0155071515"
-                      className="text-primary hover:text-primary-light transition-colors"
+                      className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                     >
                       01 55 07 15 15
                     </a>
@@ -79,7 +79,7 @@ export default function MentionsLegalesPage() {
                   <span className="text-muted">
                     <a
                       href="mailto:contact@asspro.fr"
-                      className="text-primary hover:text-primary-light transition-colors"
+                      className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                     >
                       contact@asspro.fr
                     </a>
@@ -118,7 +118,7 @@ export default function MentionsLegalesPage() {
                   <span className="text-muted">
                     <a
                       href="tel:0444446040"
-                      className="text-primary hover:text-primary-light transition-colors"
+                      className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                     >
                       04 44 44 60 40
                     </a>
@@ -130,7 +130,7 @@ export default function MentionsLegalesPage() {
                       href="https://www.o2switch.fr"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary hover:text-primary-light transition-colors"
+                      className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                     >
                       www.o2switch.fr
                     </a>
@@ -164,7 +164,7 @@ export default function MentionsLegalesPage() {
                     href="https://unsplash.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary hover:text-primary-light transition-colors"
+                    className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                   >
                     Unsplash
                   </a>{" "}
@@ -173,7 +173,7 @@ export default function MentionsLegalesPage() {
                     href="https://unsplash.com/license"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary hover:text-primary-light transition-colors"
+                    className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                   >
                     licence Unsplash
                   </a>
@@ -195,7 +195,7 @@ export default function MentionsLegalesPage() {
                   électronique à{" "}
                   <a
                     href="mailto:contact@asspro.fr"
-                    className="text-primary hover:text-primary-light transition-colors"
+                    className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                   >
                     contact@asspro.fr
                   </a>{" "}
@@ -266,7 +266,7 @@ export default function MentionsLegalesPage() {
                   l&apos;Association par e-mail à{" "}
                   <a
                     href="mailto:contact@asspro.fr"
-                    className="text-primary hover:text-primary-light transition-colors"
+                    className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                   >
                     contact@asspro.fr
                   </a>{" "}
@@ -280,7 +280,7 @@ export default function MentionsLegalesPage() {
                     href="https://www.cnil.fr"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary hover:text-primary-light transition-colors"
+                    className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                   >
                     www.cnil.fr
                   </a>
@@ -337,7 +337,7 @@ export default function MentionsLegalesPage() {
                     href="https://www.cnil.fr/fr/cookies-les-outils-pour-les-maitriser"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary hover:text-primary-light transition-colors"
+                    className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                   >
                     www.cnil.fr
                   </a>

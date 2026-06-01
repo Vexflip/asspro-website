@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
             <div className="mb-4">
               <Image
-                src="/images/logo-dark-bg.png"
+                src="/images/logo-dark-bg.webp"
                 alt="ASSPRO"
                 width={140}
                 height={48}
@@ -28,7 +28,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="font-bold mb-4 text-white/90">Navigation</h4>
+            <h3 className="font-bold mb-4 text-white/90">Navigation</h3>
             <ul className="space-y-2">
               {[
                 ["À propos", "/a-propos"],
@@ -52,7 +52,7 @@ export default function Footer() {
 
           {/* Formations */}
           <div>
-            <h4 className="font-bold mb-4 text-white/90">Formations</h4>
+            <h3 className="font-bold mb-4 text-white/90">Formations</h3>
             <ul className="space-y-2">
               {[
                 "Formations ARRES",
@@ -75,7 +75,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold mb-4 text-white/90">Contact</h4>
+            <h3 className="font-bold mb-4 text-white/90">Contact</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-white/60 text-sm">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
@@ -93,7 +93,7 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:0476181307"
-                  className="flex items-center gap-2 text-emergency hover:text-emergency/80 transition-colors text-sm font-medium"
+                  className="flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors text-sm font-medium"
                 >
                   <AlertTriangle className="w-4 h-4 shrink-0" />
                   Urgence 24/7 : 04.76.18.13.07
@@ -113,7 +113,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/40">
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/60">
           <p>&copy; {new Date().getFullYear()} ASSPRO. Tous droits réservés.</p>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6 items-center">
             <a

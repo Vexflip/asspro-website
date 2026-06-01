@@ -45,7 +45,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <Image
-              src={scrolled ? "/images/logo-white-bg.png" : "/images/logo-dark-bg.png"}
+              src={scrolled ? "/images/logo-white-bg.webp" : "/images/logo-dark-bg.webp"}
               alt="ASSPRO"
               width={140}
               height={48}
@@ -130,7 +130,7 @@ export default function Navbar() {
                 "hidden md:inline-flex items-center px-5 py-2 rounded-lg text-sm font-semibold transition-all",
                 scrolled
                   ? "bg-primary text-white hover:bg-primary-light"
-                  : "bg-white text-primary hover:bg-white/90"
+                  : "bg-white text-accent-teal hover:bg-white/90"
               )}
             >
               LinkedIn

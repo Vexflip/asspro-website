@@ -7,9 +7,9 @@ import Button from "@/components/ui/Button";
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image — replace /images/hero-bg.jpg with local file when available */}
+      {/* Background image — replace /images/hero-bg.webp with local file when available */}
       <Image
-        src="/images/hero-bg.png"
+        src="/images/hero-bg.webp"
         alt="Équipe chirurgicale au bloc opératoire"
         fill
         priority

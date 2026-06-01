@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Calendar, MapPin, Clock } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ScrollReveal from "@/components/ui/ScrollReveal";
@@ -23,10 +24,15 @@ export default function TrainingAgenda() {
           {upcoming.map((formation, i) => (
             <ScrollReveal key={formation.id} delay={i * 0.1}>
               <div className="h-full flex flex-col bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 overflow-hidden group">
-                <div
-                  className="h-40 bg-cover bg-center shrink-0"
-                  style={{ backgroundImage: `url(${formation.image})` }}
-                />
+                <div className="relative h-40 shrink-0">
+                  <Image
+                    src={formation.image}
+                    alt={formation.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
                 <div className="p-5 flex flex-col flex-1">
                   <div>
                     <Badge variant="primary">{categoryLabels[formation.category]}</Badge>
