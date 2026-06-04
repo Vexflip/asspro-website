@@ -89,4 +89,14 @@ export const boardMembers: BoardMember[] = [
     photo: "/images/team/roupret.webp",
     linkedin: "https://www.linkedin.com/in/morgan-roupr%C3%AAt-aba167135/",
   },
+  {
+    name: "Dr Jean Droguet",
+    title: "Anesthésie-Réanimation",
+    photo: "/images/team/droguet.webp",
+  },
+  {
+    name: "Dr Matthieu Closon",
+    title: "Anesthésiste-Réanimateur",
+    photo: "/images/team/closon.webp",
+  },
 ];
