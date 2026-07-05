@@ -19,6 +19,6 @@ export const stats: Stat[] = [
   {
     value: 24,
     suffix: "/7",
-    label: "Urgence médico-légale",
+    label: "Assistance médico-légale",
   },
 ];

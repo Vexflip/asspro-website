@@ -8,32 +8,6 @@ export interface BoardMember {
 
 export const boardMembers: BoardMember[] = [
   {
-    name: "Dr Patrick-Georges Yavordios",
-    role: "Président d'Asspro",
-    title: "Anesthésiste-réanimateur",
-    photo: "/images/team/yavordios.webp",
-    linkedin: "https://www.linkedin.com/in/patrick-georges-yavordios-807126160/",
-  },
-  {
-    name: "Dr Frédéric Sailhan",
-    role: "Vice-Président d'Asspro",
-    title: "Chirurgien orthopédiste",
-    photo: "/images/team/sailhan.webp",
-    linkedin: "https://www.linkedin.com/in/fr%C3%A9d%C3%A9ric-sailhan-68051116/",
-  },
-  {
-    name: "Dr Antoine Watrelot",
-    role: "Secrétaire Général d'Asspro",
-    title: "Chirurgien gynécologue",
-    photo: "/images/team/watrelot.webp",
-  },
-  {
-    name: "Dr Jean Droguet",
-    role: "Trésorier d'Asspro",
-    title: "Anesthésiste-réanimateur",
-    photo: "/images/team/silhouette.svg",
-  },
-  {
     name: "Dr Guillaume Bonnaud",
     title: "Hépatogastroentérologue",
     photo: "/images/team/bonnaud.webp",
@@ -47,12 +21,18 @@ export const boardMembers: BoardMember[] = [
   {
     name: "Dr Matthieu Closon",
     title: "Anesthésiste-réanimateur",
-    photo: "/images/team/silhouette.svg",
+    photo: "/images/team/closon.webp",
   },
   {
     name: "Dr Jean-Michel Dreyfus",
     title: "Chirurgien gynécologue-obstétricien",
     photo: "/images/team/dreyfus.webp",
+  },
+  {
+    name: "Dr Jean Droguet",
+    role: "Trésorier d'Asspro",
+    title: "Anesthésiste-réanimateur",
+    photo: "/images/team/droguet.webp",
   },
   {
     name: "Dr Christophe Lebrun",
@@ -90,13 +70,23 @@ export const boardMembers: BoardMember[] = [
     linkedin: "https://www.linkedin.com/in/morgan-roupr%C3%AAt-aba167135/",
   },
   {
-    name: "Dr Jean Droguet",
-    title: "Anesthésie-Réanimation",
-    photo: "/images/team/droguet.webp",
+    name: "Dr Frédéric Sailhan",
+    role: "Vice-Président d'Asspro",
+    title: "Chirurgien orthopédiste",
+    photo: "/images/team/sailhan.webp",
+    linkedin: "https://www.linkedin.com/in/fr%C3%A9d%C3%A9ric-sailhan-68051116/",
   },
   {
-    name: "Dr Matthieu Closon",
-    title: "Anesthésiste-Réanimateur",
-    photo: "/images/team/closon.webp",
+    name: "Dr Antoine Watrelot",
+    role: "Secrétaire Général d'Asspro",
+    title: "Chirurgien gynécologue",
+    photo: "/images/team/watrelot.webp",
+  },
+  {
+    name: "Dr Patrick-Georges Yavordios",
+    role: "Président d'Asspro",
+    title: "Anesthésiste-réanimateur",
+    photo: "/images/team/yavordios.webp",
+    linkedin: "https://www.linkedin.com/in/patrick-georges-yavordios-807126160/",
   },
 ];

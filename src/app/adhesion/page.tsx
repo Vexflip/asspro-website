@@ -98,11 +98,6 @@ export default function AdhesionPage() {
                 description:
                   "Recevez la newsletter annuelle et les alertes sur les évolutions réglementaires et les bonnes pratiques.",
               },
-              {
-                title: "ASSPRO Jeunes",
-                description:
-                  "Les jeunes praticiens bénéficient d'un accompagnement spécifique et de guides pratiques dédiés.",
-              },
             ].map((benefit, i) => (
               <ScrollReveal key={benefit.title} delay={i * 0.08}>
                 <div className="bg-white rounded-xl p-6 shadow-sm h-full">

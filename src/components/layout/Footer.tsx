@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-dark text-white">
       <div className="max-w-7xl mx-auto px-4 py-10 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {/* Brand */}
           <div>
             <div className="mb-4">
@@ -33,8 +33,6 @@ export default function Footer() {
               {[
                 ["À propos", "/a-propos"],
                 ["Formations", "/formations"],
-                ["ASSPRO Jeunes", "/asspro-jeunes"],
-                ["Actualités", "/actualites"],
                 ["Partenaires", "/partenaires"],
                 ["Contact", "/contact"],
               ].map(([label, href]) => (
@@ -44,29 +42,6 @@ export default function Footer() {
                     className="text-white/60 hover:text-white transition-colors text-sm"
                   >
                     {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Formations */}
-          <div>
-            <h3 className="font-bold mb-4 text-white/90">Formations</h3>
-            <ul className="space-y-2">
-              {[
-                "Formations ARRES",
-                "E-learning",
-                "Simulation",
-                "Softkills",
-                "ASSPRO Truck",
-              ].map((item) => (
-                <li key={item}>
-                  <Link
-                    href="/formations"
-                    className="text-white/60 hover:text-white transition-colors text-sm"
-                  >
-                    {item}
                   </Link>
                 </li>
               ))}
@@ -92,11 +67,11 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:0476181307"
+                  href="tel:0485858585"
                   className="flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors text-sm font-medium"
                 >
                   <AlertTriangle className="w-4 h-4 shrink-0" />
-                  Urgence 24/7 : 04.76.18.13.07
+                  Assistance 24/7 : 04 85 85 85 85
                 </a>
               </li>
               <li>

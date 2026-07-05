@@ -12,7 +12,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
-import { boardMembers } from "@/data/governance";
+import GovernanceSection from "@/components/sections/GovernanceSection";
 
 export const metadata: Metadata = {
   title: "À propos",
@@ -59,12 +59,6 @@ const timeline = [
     title: "Plateforme E-learning",
     description:
       "Lancement de la plateforme de formation en ligne pour toucher un public plus large.",
-  },
-  {
-    year: "2015",
-    title: "ASSPRO Jeunes",
-    description:
-      "Création du programme dédié aux jeunes praticiens du bloc opératoire.",
   },
   {
     year: "2018",
@@ -183,52 +177,7 @@ export default function AProposPage() {
       </section>
 
       {/* Governance */}
-      <section className="py-12 md:py-20 bg-surface" id="gouvernance">
-        <div className="max-w-7xl mx-auto px-4">
-          <SectionHeading
-            title="La gouvernance"
-            subtitle="Le conseil d'administration d'ASSPRO réunit des professionnels de santé engagés dans la prévention des risques opératoires."
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {boardMembers.map((member, i) => (
-              <ScrollReveal key={member.name} delay={i * 0.08}>
-                <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow h-full flex flex-col">
-                  <div className="relative aspect-square w-full bg-surface">
-                    <Image
-                      src={member.photo}
-                      alt={member.name}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover object-center"
-                      unoptimized
-                    />
-                  </div>
-                  <div className="p-5 flex flex-col flex-1">
-                    <h3 className="font-bold text-dark text-base leading-snug">{member.name}</h3>
-                    <p className="text-muted text-sm mt-1">{member.title}</p>
-                    {member.role && (
-                      <p className="text-primary text-sm font-semibold mt-1">{member.role}</p>
-                    )}
-                    {member.linkedin && (
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-auto pt-4 inline-flex items-center gap-2 text-xs text-primary hover:text-primary-light transition-colors font-medium"
-                      >
-                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                        Voir le profil LinkedIn
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <GovernanceSection />
 
       {/* Risk Management */}
       <section className="py-12 md:py-20">

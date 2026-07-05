@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Formations",
   description:
-    "Découvrez les formations ASSPRO : ARRES, e-learning, simulation, softkills et ASSPRO Truck pour les professionnels du bloc opératoire.",
+    "Les formations conçues par ASSPRO et organisées par notre partenaire Branchet Solutions pour améliorer la prévention et la gestion du risque opératoire.",
 };
 
 export default function FormationsLayout({

@@ -4,7 +4,6 @@ import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import PageHero from "@/components/ui/PageHero";
 import { formations } from "@/data/formations";
-import { newsArticles } from "@/data/news";
 import Card from "@/components/ui/Card";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
@@ -62,18 +61,6 @@ function SearchResults() {
     });
   }
 
-  let matchedNews = q ? newsArticles.filter(n => {
-    const text = normalize(`${n.title} ${n.excerpt} ${n.category}`);
-    return queryWords.every(word => isFuzzyMatch(word, text));
-  }) : [];
-
-  if (matchedNews.length === 0 && queryWords.length > 1) {
-    matchedNews = newsArticles.filter(n => {
-      const text = normalize(`${n.title} ${n.excerpt} ${n.category}`);
-      return queryWords.some(word => isFuzzyMatch(word, text));
-    });
-  }
-
   return (
     <>
       <PageHero 
@@ -85,7 +72,7 @@ function SearchResults() {
         <div className="max-w-7xl mx-auto px-4">
           {!q ? (
             <div className="text-center text-muted">Veuillez entrer un terme de recherche.</div>
-          ) : matchedFormations.length === 0 && matchedNews.length === 0 ? (
+          ) : matchedFormations.length === 0 ? (
             <div className="text-center text-muted">Aucun résultat trouvé pour &quot;{q}&quot;.</div>
           ) : (
             <div className="space-y-12">
@@ -100,24 +87,6 @@ function SearchResults() {
                           description={f.description} 
                           href="/formations"
                           cta="Voir la formation"
-                        />
-                      </ScrollReveal>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {matchedNews.length > 0 && (
-                <div>
-                  <h2 className="text-2xl font-bold font-serif mb-6 text-dark">Actualités ({matchedNews.length})</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {matchedNews.map((n, i) => (
-                      <ScrollReveal key={n.id} delay={i * 0.05}>
-                        <Card 
-                          title={n.title} 
-                          description={n.excerpt} 
-                          href={`/actualites/${n.slug}`}
-                          cta="Lire l'article"
                         />
                       </ScrollReveal>
                     ))}

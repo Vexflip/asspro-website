@@ -128,11 +128,11 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                   01.55.07.15.15
                 </a>
                 <a
-                  href="tel:0476181307"
+                  href="tel:0485858585"
                   className="flex items-center gap-2 text-emergency font-medium"
                 >
                   <AlertTriangle className="w-4 h-4" />
-                  Urgence : 04.76.18.13.07
+                  Assistance 24/7 : 04 85 85 85 85
                 </a>
                 <Link
                   href="/formations"

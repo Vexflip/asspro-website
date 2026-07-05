@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 import Hero from "@/components/sections/Hero";
 import StatsBar from "@/components/sections/StatsBar";
-import AssproJeunesPreview from "@/components/sections/AssproJeunesPreview";
 
 const PartnersLogos = dynamic(
   () => import("@/components/sections/PartnersLogos")
@@ -13,7 +12,6 @@ export default function Home() {
     <>
       <Hero />
       <StatsBar />
-      <AssproJeunesPreview />
       <PartnersLogos />
       <CTABanner />
     </>

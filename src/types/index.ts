@@ -39,7 +39,6 @@ export interface Partner {
   description: string;
   logo: string;
   url: string;
-  featured: boolean;
 }
 
 export interface Stat {

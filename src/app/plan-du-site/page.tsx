@@ -5,7 +5,6 @@ import {
   Home,
   Users,
   GraduationCap,
-  Newspaper,
   Scale,
 } from "lucide-react";
 
@@ -48,7 +47,7 @@ const siteMap = [
         label: "Nos formations",
         href: "/formations",
         description:
-          "Catalogue complet de nos formations : ARRES, e-learning, simulation, Softkills et ASSPRO Truck.",
+          "Les formations conçues par ASSPRO et organisées par notre partenaire Branchet Solutions.",
       },
     ],
   },
@@ -56,12 +55,6 @@ const siteMap = [
     title: "L'association",
     icon: <Users className="w-5 h-5" />,
     pages: [
-      {
-        label: "ASSPRO Jeunes",
-        href: "/asspro-jeunes",
-        description:
-          "Programme dédié aux jeunes praticiens du bloc opératoire.",
-      },
       {
         label: "Partenaires",
         href: "/partenaires",
@@ -73,18 +66,6 @@ const siteMap = [
         href: "/adhesion",
         description:
           "Rejoignez ASSPRO — les avantages de l'adhésion et le formulaire d'inscription.",
-      },
-    ],
-  },
-  {
-    title: "Actualités",
-    icon: <Newspaper className="w-5 h-5" />,
-    pages: [
-      {
-        label: "Actualités",
-        href: "/actualites",
-        description:
-          "Toutes les dernières nouvelles, événements et publications d'ASSPRO.",
       },
     ],
   },

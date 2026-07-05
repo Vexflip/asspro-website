@@ -13,7 +13,7 @@ import ContactForm from "@/components/ui/ContactForm";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contactez ASSPRO pour vos questions sur la prévention des risques, les formations ou l'accompagnement médico-légal. Urgence 24/7.",
+    "Contactez ASSPRO pour vos questions sur la prévention des risques, les formations ou l'accompagnement médico-légal. Assistance 24/7.",
 };
 
 export default function ContactPage() {
@@ -118,18 +118,18 @@ export default function ContactPage() {
               </div>
               <div className="flex-1">
                 <p className="font-bold text-emergency text-lg">
-                  Urgence médico-légale 24/7
+                  Assistance médico-légale 24/7
                 </p>
                 <p className="text-sm text-muted">
-                  En cas d&apos;urgence médico-légale, notre équipe est
-                  disponible 24 heures sur 24, 7 jours sur 7.
+                  En cas de besoin, notre équipe d&apos;assistance médico-légale
+                  est disponible 24 heures sur 24, 7 jours sur 7.
                 </p>
               </div>
               <a
-                href="tel:0476181307"
+                href="tel:0485858585"
                 className="text-xl font-bold text-emergency hover:text-emergency/80 transition-colors shrink-0"
               >
-                04.76.18.13.07
+                04 85 85 85 85
               </a>
             </div>
           </ScrollReveal>

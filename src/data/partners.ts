@@ -2,30 +2,28 @@ import { Partner } from "@/types";
 
 export const partners: Partner[] = [
   {
-    id: "1",
-    name: "Branchet Training & Solutions",
+    id: "branchet",
+    name: "Branchet",
     description:
-      "Partenaire historique d'ASSPRO, Branchet accompagne les professionnels de santé dans la gestion des risques médicaux et la formation continue. Ensemble, nous développons des programmes innovants pour la sécurité au bloc opératoire.",
-    logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop",
-    url: "https://www.branchet.fr",
-    featured: true,
+      "Branchet est le seul acteur du marché dont l'activité est exclusivement dédiée à la Responsabilité Civile Professionnelle médicale des praticiens du Plateau Technique Lourd et à l'Assistance Juridique. Leader incontesté de ce marché très particulier, Branchet assure plus de 7 000 praticiens du plateau technique lourd.",
+    logo: "/images/partners/branchet.svg",
+    url: "https://www.branchet.fr/",
   },
   {
-    id: "2",
-    name: "ASSPRO Truck",
+    id: "branchet-solutions",
+    name: "Branchet Solutions",
     description:
-      "Le camion itinérant ASSPRO parcourt la France pour proposer des formations de proximité avec des simulateurs de dernière génération.",
-    logo: "https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?w=200&h=100&fit=crop",
-    url: "#",
-    featured: false,
+      "Branchet Solutions a pour objet, la prestation de services dans les domaines de la prévention et la gestion du risque médical et médico-légal. Branchet Solutions s'adresse à l'ensemble des professionnels de santé et des établissements de soins.",
+    logo: "/images/partners/branchet-solutions.png",
+    url: "https://branchetsolutions.fr/",
   },
   {
-    id: "3",
-    name: "Société Française d'Anesthésie",
+    id: "fondapro",
+    name: "Fondation Fondapro",
     description:
-      "Collaboration étroite avec la SFA pour le développement de référentiels de bonnes pratiques en anesthésie.",
-    logo: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=200&h=100&fit=crop",
-    url: "#",
-    featured: false,
+      "Sous l'égide de la Fondation de France, la fondation Fondapro a pour mission de renforcer et sécuriser la situation du patient tout au long de son parcours de soins.",
+    logo: "/images/partners/fondapro.png",
+    url: "https://fondation-fondapro.org/",
   },
 ];
+

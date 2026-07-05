@@ -7,8 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/a-propos',
     '/formations',
-    '/asspro-jeunes',
-    '/actualites',
     '/partenaires',
     '/contact',
     '/mentions-legales',
@@ -21,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: route === '' || route === '/actualites' ? 'weekly' : 'monthly',
+    changeFrequency: route === '' ? 'weekly' : 'monthly',
     priority: route === '' ? 1 : route.includes('formations') || route.includes('a-propos') ? 0.8 : 0.5,
   }));
 }
