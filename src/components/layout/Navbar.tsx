@@ -56,15 +56,16 @@ export default function Navbar() {
         {/* Main nav */}
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link href="/" className="flex items-center">
-            <Image
-              src={scrolled ? "/images/logo-white-bg.webp" : "/images/logo-dark-bg.webp"}
-              alt="ASSPRO"
-              width={140}
-              height={48}
-              className="h-16 w-auto object-contain transition-all duration-300"
-              priority
-              loading="eager"
-            />
+            <div className="relative h-16 w-[140px]">
+              <Image
+                src={scrolled ? "/images/logo-white-bg.webp" : "/images/logo-dark-bg.webp"}
+                alt="ASSPRO"
+                fill
+                className="object-contain transition-all duration-300"
+                priority
+                loading="eager"
+              />
+            </div>
           </Link>
 
           {/* Desktop links */}

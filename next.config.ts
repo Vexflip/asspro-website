@@ -29,6 +29,8 @@ const nextConfig: NextConfig = {
   },
   turbopack: {},
   output: "standalone",
+  // Keep nodemailer out of the bundle and load it as a real Node module.
+  serverExternalPackages: ["nodemailer"],
 };
 
 export default nextConfig;

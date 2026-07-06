@@ -2,39 +2,13 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { CheckCircle, UserPlus } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import PageHero from "@/components/ui/PageHero";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
-
-const schema = z.object({
-  civilite: z.enum(["M.", "Mme", "Dr", "Pr"], {
-    errorMap: () => ({ message: "Veuillez sélectionner une civilité" }),
-  }),
-  prenom: z.string().min(2, "Le prénom est requis"),
-  nom: z.string().min(2, "Le nom est requis"),
-  profession: z.string().min(2, "La profession est requise"),
-  specialite: z.string().optional(),
-  etablissement: z.string().min(2, "L'établissement est requis"),
-  email: z.string().email("Email invalide"),
-  telephone: z
-    .string()
-    .regex(/^[0-9+\s().]{7,20}$/, "Numéro de téléphone invalide"),
-  adresse: z.string().min(5, "L'adresse est requise"),
-  codePostal: z
-    .string()
-    .regex(/^\d{5}$/, "Code postal invalide (5 chiffres)"),
-  ville: z.string().min(2, "La ville est requise"),
-  typeAdhesion: z.enum(["individuel", "institutionnel"], {
-    errorMap: () => ({ message: "Veuillez sélectionner un type d'adhésion" }),
-  }),
-  message: z.string().optional(),
-});
-
-type FormData = z.infer<typeof schema>;
+import { adhesionSchema, type AdhesionInput } from "@/lib/schemas";
 
 const inputClass =
   "w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition bg-white";
@@ -43,18 +17,39 @@ const labelClass = "block text-sm font-medium text-dark mb-1";
 
 export default function AdhesionPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const honeypotRef = useRef<HTMLInputElement>(null);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
-    resolver: zodResolver(schema),
+  } = useForm<AdhesionInput>({
+    resolver: zodResolver(adhesionSchema),
   });
 
-  const onSubmit = (data: FormData) => {
-    console.log("Adhesion form submitted:", data);
-    setSubmitted(true);
+  const onSubmit = async (data: AdhesionInput) => {
+    setError(null);
+    setIsSubmitting(true);
+    try {
+      const res = await fetch("/api/adhesion", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...data,
+          website: honeypotRef.current?.value || "",
+        }),
+      });
+      if (!res.ok) throw new Error("send failed");
+      setSubmitted(true);
+    } catch {
+      setError(
+        "Une erreur est survenue lors de l'envoi. Veuillez réessayer dans un instant."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -148,6 +143,16 @@ export default function AdhesionPage() {
                 onSubmit={handleSubmit(onSubmit)}
                 className="bg-white rounded-2xl shadow-sm p-8 space-y-6"
               >
+                {/* Honeypot: hidden from users, bots tend to fill it in. */}
+                <input
+                  ref={honeypotRef}
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
                 {/* Identité */}
                 <div>
                   <h3 className="font-bold text-dark text-lg mb-4 pb-2 border-b border-gray-100">
@@ -383,9 +388,12 @@ export default function AdhesionPage() {
                   />
                 </div>
 
-                <Button type="submit" className="w-full">
+                {error && <p className="text-emergency text-sm">{error}</p>}
+                <Button type="submit" className="w-full" disabled={isSubmitting}>
                   <UserPlus className="w-4 h-4 mr-2" />
-                  Soumettre ma demande d&apos;adhésion
+                  {isSubmitting
+                    ? "Envoi en cours…"
+                    : "Soumettre ma demande d'adhésion"}
                 </Button>
               </form>
             </ScrollReveal>
