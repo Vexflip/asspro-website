@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import path from "path";
 
 const nextConfig: NextConfig = {
   images: {
@@ -23,12 +22,7 @@ const nextConfig: NextConfig = {
     cpus: 1,
     workerThreads: false,
   },
-  webpack(config) {
-    config.resolve.alias["@"] = path.resolve(__dirname, "src");
-    return config;
-  },
-  turbopack: {},
-  output: "standalone",
+  output: process.env.NEXT_STANDALONE === "true" ? "standalone" : undefined,
   // Keep nodemailer out of the bundle and load it as a real Node module.
   serverExternalPackages: ["nodemailer"],
 };

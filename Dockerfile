@@ -21,6 +21,7 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # Build the Next.js production bundle
+ENV NEXT_STANDALONE=true
 RUN npm run build
 
 # ── Stage 3: Production image ──────────────────────────────
