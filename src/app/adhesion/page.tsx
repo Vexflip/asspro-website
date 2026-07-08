@@ -71,7 +71,7 @@ export default function AdhesionPage() {
               {
                 title: "Accès aux formations",
                 description:
-                  "Tarifs préférentiels sur l'ensemble du catalogue de formations ASSPRO, y compris les sessions ARRES et les modules e-learning.",
+                  "Accès à l’ensemble des formations conçues par ASSPRO.",
               },
               {
                 title: "Accompagnement médico-légal",
@@ -119,7 +119,7 @@ export default function AdhesionPage() {
         <div className="max-w-3xl mx-auto px-4">
           <SectionHeading
             title="Formulaire d'adhésion"
-            subtitle="Remplissez le formulaire ci-dessous. Nous traiterons votre demande et vous contacterons sous 72h."
+            subtitle="Remplissez le formulaire ci-dessous. Nous traiterons votre demande dans les meilleurs délais."
           />
 
           {submitted ? (
