@@ -22,7 +22,7 @@ export default function Footer() {
             </div>
             <p className="text-white/60 text-sm leading-relaxed">
               Association dédiée à la prévention et la maîtrise des risques au
-              bloc opératoire depuis plus de 30 ans.
+              bloc opératoire depuis près de 30 ans.
             </p>
           </div>
 

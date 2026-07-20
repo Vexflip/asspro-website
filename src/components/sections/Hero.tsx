@@ -28,7 +28,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6 border border-white/20">
-            Depuis plus de 30 ans aux côtés des professionnels de santé
+            Depuis près de 30 ans aux côtés des professionnels de santé
           </span>
         </motion.div>
 

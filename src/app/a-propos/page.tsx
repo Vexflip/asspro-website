@@ -28,9 +28,9 @@ const values = [
     icon: <Shield className="w-6 h-6" />,
   },
   {
-    title: "Formation",
+    title: "Formation continue",
     description:
-      "Transmettre les connaissances et développer les compétences des professionnels de santé.",
+      "Transmettre les connaissances et développer les compétences des professionnels de santé en matière de prévention du risque.",
     icon: <GraduationCap className="w-6 h-6" />,
   },
   {
@@ -43,32 +43,32 @@ const values = [
 
 const timeline = [
   {
-    year: "1991",
+    year: "1997",
     title: "Création d'ASSPRO",
     description:
       "Fondation de l'association par des anesthésistes-réanimateurs engagés dans la prévention des risques.",
   },
   {
-    year: "2000",
+    year: "2001",
     title: "Lancement des formations ARRES",
     description:
       "Mise en place du programme phare d'Analyse et Réduction des Risques en Établissements de Santé.",
   },
   {
-    year: "2010",
-    title: "Plateforme E-learning",
+    year: "2005",
+    title: "Journées ARRES",
     description:
-      "Lancement de la plateforme de formation en ligne pour toucher un public plus large.",
-  },
-  {
-    year: "2018",
-    title: "ASSPRO Truck",
-    description:
-      "Lancement du camion itinérant de formation avec simulateurs embarqués.",
+      "Première édition des Journées ARRES, réunissant les professionnels de santé autour de la prévention et de la gestion des risques.",
   },
   {
     year: "2024",
-    title: "30+ ans d'engagement",
+    title: "Journée ASSPRO Multidisciplinaire",
+    description:
+      "Organisation de la Journée ASSPRO Multidisciplinaire, rassemblant l'ensemble des spécialités autour de la sécurité au bloc opératoire.",
+  },
+  {
+    year: "2026",
+    title: "Près de 30 ans d'engagement",
     description:
       "Plus de 5000 professionnels formés et un réseau national de partenaires.",
   },
@@ -80,7 +80,7 @@ export default function AProposPage() {
       {/* Hero */}
       <PageHero
         title="Qui sommes-nous ?"
-        subtitle="Depuis plus de 30 ans, ASSPRO accompagne les professionnels du bloc opératoire dans la prévention et la gestion des risques."
+        subtitle="Depuis près de 30 ans, ASSPRO accompagne les professionnels du bloc opératoire dans la prévention et la gestion des risques."
       />
 
       {/* Mission */}
@@ -103,7 +103,7 @@ export default function AProposPage() {
                 Notre mission
               </h2>
               <p className="text-muted leading-relaxed mb-4">
-                ASSPRO (Association Spéciale de prévention du Risque Opératoire)
+                ASSPRO (Association Spéciale de Prévention du Risque Opératoire)
                 est une association dédiée à la prévention et à la maîtrise
                 des risques au bloc opératoire.
               </p>
@@ -145,7 +145,7 @@ export default function AProposPage() {
         <div className="max-w-4xl mx-auto px-4">
           <SectionHeading
             title="Notre histoire"
-            subtitle="Plus de trois décennies d'engagement pour la sécurité au bloc opératoire"
+            subtitle="Près de trois décennies d'engagement pour la sécurité au bloc opératoire"
           />
           <div className="relative">
             <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 -translate-x-1/2" />

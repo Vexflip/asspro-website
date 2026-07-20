@@ -21,7 +21,7 @@ const pages: SearchEntry[] = [
     description:
       "Une association de médecins, pour les médecins — pour une meilleure prévention des risques au bloc opératoire.",
     keywords:
-      "ASSPRO association de médecins pour les médecins prévention des risques au bloc opératoire depuis plus de 30 ans aux côtés des professionnels de santé 5000 professionnels formés 150 formations par an assistance médico-légale 24/7 rejoignez ASSPRO devenir adhérent formations de qualité accompagnement médico-légal ressources exclusives Branchet Fondapro",
+      "ASSPRO association de médecins pour les médecins prévention des risques au bloc opératoire depuis près de 30 ans aux côtés des professionnels de santé 5000 professionnels formés 150 formations par an assistance médico-légale 24/7 rejoignez ASSPRO devenir adhérent formations de qualité accompagnement médico-légal ressources exclusives Branchet Fondapro",
   },
   {
     id: "page-a-propos",
@@ -31,7 +31,7 @@ const pages: SearchEntry[] = [
     description:
       "Découvrez ASSPRO, notre mission, nos valeurs, notre histoire et l'équipe engagée dans la prévention des risques au bloc opératoire.",
     keywords:
-      "qui sommes-nous notre mission ASSPRO Association Spéciale de prévention du Risque Opératoire maîtrise des risques au bloc opératoire nos valeurs prévention formation accompagnement médico-légal notre histoire 1991 création ARRES 2000 plateforme e-learning 2010 ASSPRO Truck camion itinérant 2018 gouvernance conseil d'administration la gestion des risques identification analyse barrières de sécurité protocoles événements indésirables travail collaboratif chirurgien anesthésiste infirmier de bloc sécurité du patient",
+      "qui sommes-nous notre mission ASSPRO Association Spéciale de Prévention du Risque Opératoire maîtrise des risques au bloc opératoire nos valeurs prévention formation accompagnement médico-légal notre histoire 1991 création ARRES 2000 plateforme e-learning 2010 ASSPRO Truck camion itinérant 2018 gouvernance conseil d'administration la gestion des risques identification analyse barrières de sécurité protocoles événements indésirables travail collaboratif chirurgien anesthésiste infirmier de bloc sécurité du patient",
   },
   {
     id: "page-formations",

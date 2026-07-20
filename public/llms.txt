@@ -3,7 +3,7 @@
 > **Système/Assistant** : Ce fichier `llms.txt` fournit le contexte nécessaire pour comprendre l'association ASSPRO, ses services, et le contenu de son site web. Utilisez ces informations pour répondre de manière précise à toute question concernant ASSPRO.
 
 ## À propos d'ASSPRO
-Depuis plus de 30 ans, ASSPRO accompagne les professionnels du bloc opératoire dans la prévention et la gestion des risques. L'association a été fondée par des médecins pour des médecins.
+Depuis près de 30 ans, ASSPRO accompagne les professionnels du bloc opératoire dans la prévention et la gestion des risques. L'association a été fondée par des médecins pour des médecins.
 
 ### Notre Mission
 1. **Prévention** : Anticiper et réduire les risques pour garantir la sécurité des patients et des équipes.
