@@ -1,6 +1,6 @@
 # One-command build + run for the ASSPRO site.
 #
-#   1. cp .env.docker.example .env   # then fill in the SMTP_* values
+#   1. cp .env.example .env   # then fill in the SMTP_* values
 #   2. docker compose up -d --build
 #
 # The app listens on http://localhost:3000 and reports health via /api/health.

@@ -15,14 +15,6 @@ const eslintConfig = defineConfig([
     // Local, git-ignored build/report artifacts (not project source):
     ".unlighthouse/**",
   ]),
-  {
-    // Custom CommonJS Node entrypoint (used for the non-Docker/Passenger host);
-    // require() is idiomatic here.
-    files: ["server.js"],
-    rules: {
-      "@typescript-eslint/no-require-imports": "off",
-    },
-  },
 ]);
 
 export default eslintConfig;

@@ -14,7 +14,7 @@ const cguSections = [
   {
     number: "1",
     title: "Objet",
-    content: `Les présentes conditions générales d'utilisation (ci-après « CGU ») ont pour objet de définir les règles d'utilisation du site internet https://www.asspro.fr/ (ci-après « le Site »), édité par l'Association pour la Prévention du Risque Opératoire (ASSPRO), dont le siège social est situé au 60 rue de la Chaussée d'Antin, 75009 Paris.\n\nEn accédant au Site, l'utilisateur accepte sans réserve les présentes CGU. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser le Site.`,
+    content: `Les présentes conditions générales d'utilisation (ci-après « CGU ») ont pour objet de définir les règles d'utilisation du site internet https://asspro.fr (ci-après « le Site »), édité par l'Association pour la Prévention du Risque Opératoire (ASSPRO), dont le siège social est situé au 60 rue de la Chaussée d'Antin, 75009 Paris.\n\nEn accédant au Site, l'utilisateur accepte sans réserve les présentes CGU. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser le Site.`,
   },
   {
     number: "2",
@@ -79,10 +79,10 @@ export default function ConditionsGeneralesPage() {
               Les présentes conditions générales d&apos;utilisation régissent
               l&apos;accès et l&apos;utilisation du site{" "}
               <a
-                href="https://www.asspro.fr"
+                href="https://asspro.fr"
                 className="text-primary hover:text-primary-light transition-colors font-medium"
               >
-                www.asspro.fr
+                asspro.fr
               </a>
               , édité par l&apos;Association pour la Prévention du Risque
               Opératoire (ASSPRO). En naviguant sur ce site, vous acceptez

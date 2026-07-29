@@ -10,5 +10,8 @@ yarn-debug.log*
 .pnpm-debug.log*
 *.tsbuildinfo
 next-env.d.ts
-app.error.log
-.gemini
+
+# Local tooling and build/report artifacts (git-ignored, never part of a build)
+.claude
+.unlighthouse
+asspro-website.tar

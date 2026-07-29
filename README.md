@@ -62,7 +62,7 @@ Le plus simple : une seule commande. Renseignez les identifiants une fois dans u
 fichier `.env`, puis lancez.
 
 ```bash
-cp .env.docker.example .env   # puis renseignez les valeurs SMTP_*
+cp .env.example .env          # puis renseignez les valeurs SMTP_*
 docker compose up -d --build  # build de l'image + démarrage sur http://localhost:3000
 ```
 

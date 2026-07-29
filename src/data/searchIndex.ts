@@ -101,7 +101,7 @@ const pages: SearchEntry[] = [
     description:
       "Règles d'utilisation du site ASSPRO, propriété intellectuelle et responsabilité.",
     keywords:
-      "conditions générales d'utilisation CGU objet propriété intellectuelle accès au site utilisation du site liens hypertextes données personnelles RGPD cookies consentement limitation de responsabilité modification des CGU droit applicable juridiction compétente tribunaux français www.asspro.fr",
+      "conditions générales d'utilisation CGU objet propriété intellectuelle accès au site utilisation du site liens hypertextes données personnelles RGPD cookies consentement limitation de responsabilité modification des CGU droit applicable juridiction compétente tribunaux français asspro.fr",
   },
   {
     id: "page-plan-du-site",

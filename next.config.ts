@@ -13,7 +13,7 @@ const isDev = process.env.NODE_ENV === "development";
  *   `'unsafe-eval'` is only added in dev (React's dev tooling uses eval).
  * - `style-src 'unsafe-inline'` is required by Tailwind's injected styles and
  *   framer-motion's inline `style` attributes.
- * - `img-src` allows the two remote image CDNs configured below plus data/blob.
+ * - `img-src` allows the remote image CDN configured below plus data/blob.
  * If stricter script protection is ever needed, migrate to a nonce-based CSP in
  * a `proxy.ts` (Next 16's renamed middleware) — see the Next.js CSP guide.
  */
@@ -25,7 +25,7 @@ const csp = [
   // Google Maps embed on the contact page is framed here; keep this list tight.
   "frame-src 'self' https://www.google.com",
   "object-src 'none'",
-  "img-src 'self' blob: data: https://images.unsplash.com https://images.pexels.com",
+  "img-src 'self' blob: data: https://images.unsplash.com",
   "font-src 'self' data:",
   "connect-src 'self'",
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
@@ -58,10 +58,6 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "images.unsplash.com",
-      },
-      {
-        protocol: "https",
-        hostname: "images.pexels.com",
       },
     ],
   },
