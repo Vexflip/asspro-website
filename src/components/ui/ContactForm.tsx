@@ -3,6 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Send } from "lucide-react";
+import Link from "next/link";
 import Button from "./Button";
 import { useRef, useState } from "react";
 import { contactSchema, type ContactInput } from "@/lib/schemas";
@@ -70,44 +71,79 @@ export default function ContactForm() {
         className="hidden"
       />
       <div>
-        <label className="block text-sm font-medium text-dark mb-1">Nom complet</label>
+        <label htmlFor="contact-name" className="block text-sm font-medium text-dark mb-1">Nom complet</label>
         <input
+          id="contact-name"
           {...register("name")}
           className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition"
           placeholder="Dr. Jean Dupont"
+          aria-invalid={errors.name ? true : undefined}
+          aria-describedby={errors.name ? "contact-name-error" : undefined}
         />
-        {errors.name && <p className="text-emergency text-sm mt-1">{errors.name.message}</p>}
+        {errors.name && <p id="contact-name-error" role="alert" className="text-emergency text-sm mt-1">{errors.name.message}</p>}
       </div>
       <div>
-        <label className="block text-sm font-medium text-dark mb-1">Email</label>
+        <label htmlFor="contact-email" className="block text-sm font-medium text-dark mb-1">Email</label>
         <input
+          id="contact-email"
           {...register("email")}
           type="email"
           className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition"
           placeholder="jean.dupont@email.fr"
+          aria-invalid={errors.email ? true : undefined}
+          aria-describedby={errors.email ? "contact-email-error" : undefined}
         />
-        {errors.email && <p className="text-emergency text-sm mt-1">{errors.email.message}</p>}
+        {errors.email && <p id="contact-email-error" role="alert" className="text-emergency text-sm mt-1">{errors.email.message}</p>}
       </div>
       <div>
-        <label className="block text-sm font-medium text-dark mb-1">Sujet</label>
+        <label htmlFor="contact-subject" className="block text-sm font-medium text-dark mb-1">Sujet</label>
         <input
+          id="contact-subject"
           {...register("subject")}
           className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition"
           placeholder="Renseignement sur les formations"
+          aria-invalid={errors.subject ? true : undefined}
+          aria-describedby={errors.subject ? "contact-subject-error" : undefined}
         />
-        {errors.subject && <p className="text-emergency text-sm mt-1">{errors.subject.message}</p>}
+        {errors.subject && <p id="contact-subject-error" role="alert" className="text-emergency text-sm mt-1">{errors.subject.message}</p>}
       </div>
       <div>
-        <label className="block text-sm font-medium text-dark mb-1">Message</label>
+        <label htmlFor="contact-message" className="block text-sm font-medium text-dark mb-1">Message</label>
         <textarea
+          id="contact-message"
           {...register("message")}
           rows={5}
           className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition resize-none"
           placeholder="Votre message..."
+          aria-invalid={errors.message ? true : undefined}
+          aria-describedby={errors.message ? "contact-message-error" : undefined}
         />
-        {errors.message && <p className="text-emergency text-sm mt-1">{errors.message.message}</p>}
+        {errors.message && <p id="contact-message-error" role="alert" className="text-emergency text-sm mt-1">{errors.message.message}</p>}
       </div>
-      {error && <p className="text-emergency text-sm">{error}</p>}
+      <div>
+        <label className="flex items-start gap-2 text-sm text-muted">
+          <input
+            {...register("consent")}
+            type="checkbox"
+            className="mt-1 h-4 w-4 shrink-0 rounded border-gray-300 text-primary focus:ring-primary/20"
+          />
+          <span>
+            J&apos;accepte que mes données soient traitées pour répondre à ma
+            demande, conformément à la{" "}
+            <Link
+              href="/politique-de-confidentialite"
+              className="text-primary underline hover:no-underline"
+            >
+              politique de confidentialité
+            </Link>
+            .
+          </span>
+        </label>
+        {errors.consent && (
+          <p role="alert" className="text-emergency text-sm mt-1">{errors.consent.message}</p>
+        )}
+      </div>
+      {error && <p role="alert" className="text-emergency text-sm">{error}</p>}
       <Button type="submit" className="w-full" disabled={isSubmitting}>
         <Send className="w-4 h-4 mr-2" />
         {isSubmitting ? "Envoi en cours…" : "Envoyer le message"}

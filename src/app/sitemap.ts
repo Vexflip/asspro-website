@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next';
+import { SITE_URL } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://asspro.vexflip.fr';
+  const baseUrl = SITE_URL;
 
   const routes = [
     '',
@@ -11,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/contact',
     '/mentions-legales',
     '/conditions-generales',
+    '/politique-de-confidentialite',
     '/plan-du-site',
     '/adhesion',
     '/recherche'

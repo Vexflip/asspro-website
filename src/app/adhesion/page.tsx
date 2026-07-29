@@ -3,6 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckCircle, UserPlus } from "lucide-react";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import PageHero from "@/components/ui/PageHero";
 import ScrollReveal from "@/components/ui/ScrollReveal";
@@ -160,8 +161,14 @@ export default function AdhesionPage() {
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
                     <div>
-                      <label className={labelClass}>Civilité</label>
-                      <select {...register("civilite")} className={inputClass}>
+                      <label htmlFor="adh-civilite" className={labelClass}>Civilité</label>
+                      <select
+                        id="adh-civilite"
+                        {...register("civilite")}
+                        className={inputClass}
+                        aria-invalid={errors.civilite ? true : undefined}
+                        aria-describedby={errors.civilite ? "adh-civilite-error" : undefined}
+                      >
                         <option value="">—</option>
                         <option value="M.">M.</option>
                         <option value="Mme">Mme</option>
@@ -169,33 +176,39 @@ export default function AdhesionPage() {
                         <option value="Pr">Pr</option>
                       </select>
                       {errors.civilite && (
-                        <p className="text-emergency text-sm mt-1">
+                        <p id="adh-civilite-error" role="alert" className="text-emergency text-sm mt-1">
                           {errors.civilite.message}
                         </p>
                       )}
                     </div>
                     <div>
-                      <label className={labelClass}>Prénom</label>
+                      <label htmlFor="adh-prenom" className={labelClass}>Prénom</label>
                       <input
+                        id="adh-prenom"
                         {...register("prenom")}
                         className={inputClass}
                         placeholder="Jean"
+                        aria-invalid={errors.prenom ? true : undefined}
+                        aria-describedby={errors.prenom ? "adh-prenom-error" : undefined}
                       />
                       {errors.prenom && (
-                        <p className="text-emergency text-sm mt-1">
+                        <p id="adh-prenom-error" role="alert" className="text-emergency text-sm mt-1">
                           {errors.prenom.message}
                         </p>
                       )}
                     </div>
                     <div className="sm:col-span-2">
-                      <label className={labelClass}>Nom</label>
+                      <label htmlFor="adh-nom" className={labelClass}>Nom</label>
                       <input
+                        id="adh-nom"
                         {...register("nom")}
                         className={inputClass}
                         placeholder="Dupont"
+                        aria-invalid={errors.nom ? true : undefined}
+                        aria-describedby={errors.nom ? "adh-nom-error" : undefined}
                       />
                       {errors.nom && (
-                        <p className="text-emergency text-sm mt-1">
+                        <p id="adh-nom-error" role="alert" className="text-emergency text-sm mt-1">
                           {errors.nom.message}
                         </p>
                       )}
@@ -210,40 +223,47 @@ export default function AdhesionPage() {
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className={labelClass}>Profession</label>
+                      <label htmlFor="adh-profession" className={labelClass}>Profession</label>
                       <input
+                        id="adh-profession"
                         {...register("profession")}
                         className={inputClass}
                         placeholder="Anesthésiste-Réanimateur"
+                        aria-invalid={errors.profession ? true : undefined}
+                        aria-describedby={errors.profession ? "adh-profession-error" : undefined}
                       />
                       {errors.profession && (
-                        <p className="text-emergency text-sm mt-1">
+                        <p id="adh-profession-error" role="alert" className="text-emergency text-sm mt-1">
                           {errors.profession.message}
                         </p>
                       )}
                     </div>
                     <div>
-                      <label className={labelClass}>
+                      <label htmlFor="adh-specialite" className={labelClass}>
                         Spécialité{" "}
                         <span className="text-muted font-normal">
                           (optionnel)
                         </span>
                       </label>
                       <input
+                        id="adh-specialite"
                         {...register("specialite")}
                         className={inputClass}
                         placeholder="Chirurgie cardiaque"
                       />
                     </div>
                     <div className="sm:col-span-2">
-                      <label className={labelClass}>Établissement</label>
+                      <label htmlFor="adh-etablissement" className={labelClass}>Établissement</label>
                       <input
+                        id="adh-etablissement"
                         {...register("etablissement")}
                         className={inputClass}
                         placeholder="CHU de Lyon"
+                        aria-invalid={errors.etablissement ? true : undefined}
+                        aria-describedby={errors.etablissement ? "adh-etablissement-error" : undefined}
                       />
                       {errors.etablissement && (
-                        <p className="text-emergency text-sm mt-1">
+                        <p id="adh-etablissement-error" role="alert" className="text-emergency text-sm mt-1">
                           {errors.etablissement.message}
                         </p>
                       )}
@@ -258,68 +278,83 @@ export default function AdhesionPage() {
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className={labelClass}>Email</label>
+                      <label htmlFor="adh-email" className={labelClass}>Email</label>
                       <input
+                        id="adh-email"
                         {...register("email")}
                         type="email"
                         className={inputClass}
                         placeholder="jean.dupont@chu-lyon.fr"
+                        aria-invalid={errors.email ? true : undefined}
+                        aria-describedby={errors.email ? "adh-email-error" : undefined}
                       />
                       {errors.email && (
-                        <p className="text-emergency text-sm mt-1">
+                        <p id="adh-email-error" role="alert" className="text-emergency text-sm mt-1">
                           {errors.email.message}
                         </p>
                       )}
                     </div>
                     <div>
-                      <label className={labelClass}>Téléphone</label>
+                      <label htmlFor="adh-telephone" className={labelClass}>Téléphone</label>
                       <input
+                        id="adh-telephone"
                         {...register("telephone")}
                         type="tel"
                         className={inputClass}
                         placeholder="06 12 34 56 78"
+                        aria-invalid={errors.telephone ? true : undefined}
+                        aria-describedby={errors.telephone ? "adh-telephone-error" : undefined}
                       />
                       {errors.telephone && (
-                        <p className="text-emergency text-sm mt-1">
+                        <p id="adh-telephone-error" role="alert" className="text-emergency text-sm mt-1">
                           {errors.telephone.message}
                         </p>
                       )}
                     </div>
                     <div className="sm:col-span-2">
-                      <label className={labelClass}>Adresse postale</label>
+                      <label htmlFor="adh-adresse" className={labelClass}>Adresse postale</label>
                       <input
+                        id="adh-adresse"
                         {...register("adresse")}
                         className={inputClass}
                         placeholder="12 rue de la Paix"
+                        aria-invalid={errors.adresse ? true : undefined}
+                        aria-describedby={errors.adresse ? "adh-adresse-error" : undefined}
                       />
                       {errors.adresse && (
-                        <p className="text-emergency text-sm mt-1">
+                        <p id="adh-adresse-error" role="alert" className="text-emergency text-sm mt-1">
                           {errors.adresse.message}
                         </p>
                       )}
                     </div>
                     <div>
-                      <label className={labelClass}>Code postal</label>
+                      <label htmlFor="adh-codePostal" className={labelClass}>Code postal</label>
                       <input
+                        id="adh-codePostal"
                         {...register("codePostal")}
                         className={inputClass}
                         placeholder="69001"
+                        aria-invalid={errors.codePostal ? true : undefined}
+                        aria-describedby={errors.codePostal ? "adh-codePostal-error" : undefined}
                       />
                       {errors.codePostal && (
-                        <p className="text-emergency text-sm mt-1">
+                        <p id="adh-codePostal-error" role="alert" className="text-emergency text-sm mt-1">
                           {errors.codePostal.message}
                         </p>
                       )}
                     </div>
                     <div>
-                      <label className={labelClass}>Ville</label>
+                      <label htmlFor="adh-ville" className={labelClass}>Ville</label>
                       <input
+                        id="adh-ville"
                         {...register("ville")}
                         className={inputClass}
                         placeholder="Lyon"
+                        aria-invalid={errors.ville ? true : undefined}
+                        aria-describedby={errors.ville ? "adh-ville-error" : undefined}
                       />
                       {errors.ville && (
-                        <p className="text-emergency text-sm mt-1">
+                        <p id="adh-ville-error" role="alert" className="text-emergency text-sm mt-1">
                           {errors.ville.message}
                         </p>
                       )}
@@ -368,7 +403,7 @@ export default function AdhesionPage() {
                     ))}
                   </div>
                   {errors.typeAdhesion && (
-                    <p className="text-emergency text-sm mt-2">
+                    <p role="alert" className="text-emergency text-sm mt-2">
                       {errors.typeAdhesion.message}
                     </p>
                   )}
@@ -376,11 +411,12 @@ export default function AdhesionPage() {
 
                 {/* Message */}
                 <div>
-                  <label className={labelClass}>
+                  <label htmlFor="adh-message" className={labelClass}>
                     Message{" "}
                     <span className="text-muted font-normal">(optionnel)</span>
                   </label>
                   <textarea
+                    id="adh-message"
                     {...register("message")}
                     rows={4}
                     className={`${inputClass} resize-none`}
@@ -388,7 +424,38 @@ export default function AdhesionPage() {
                   />
                 </div>
 
-                {error && <p className="text-emergency text-sm">{error}</p>}
+                {/* Consentement RGPD */}
+                <div>
+                  <label className="flex items-start gap-2 text-sm text-muted">
+                    <input
+                      {...register("consent")}
+                      type="checkbox"
+                      className="mt-1 h-4 w-4 shrink-0 rounded border-gray-300 text-primary focus:ring-primary/20"
+                    />
+                    <span>
+                      J&apos;accepte que les données transmises soient utilisées
+                      pour traiter ma demande d&apos;adhésion, conformément à la{" "}
+                      <Link
+                        href="/politique-de-confidentialite"
+                        className="text-primary underline hover:no-underline"
+                      >
+                        politique de confidentialité
+                      </Link>
+                      .
+                    </span>
+                  </label>
+                  {errors.consent && (
+                    <p role="alert" className="text-emergency text-sm mt-1">
+                      {errors.consent.message}
+                    </p>
+                  )}
+                </div>
+
+                {error && (
+                  <p role="alert" className="text-emergency text-sm">
+                    {error}
+                  </p>
+                )}
                 <Button type="submit" className="w-full" disabled={isSubmitting}>
                   <UserPlus className="w-4 h-4 mr-2" />
                   {isSubmitting

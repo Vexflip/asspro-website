@@ -7,9 +7,11 @@ import {
   GraduationCap,
   Scale,
 } from "lucide-react";
+import { canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Plan du site",
+  alternates: canonical("/plan-du-site"),
   description:
     "Plan du site ASSPRO — retrouvez l'ensemble des pages du site pour naviguer facilement parmi nos contenus : formations, adhésion, contact et plus.",
 };
@@ -78,6 +80,12 @@ const siteMap = [
         href: "/mentions-legales",
         description:
           "Informations sur l'éditeur, l'hébergeur, la propriété intellectuelle et la protection des données.",
+      },
+      {
+        label: "Politique de confidentialité",
+        href: "/politique-de-confidentialite",
+        description:
+          "Traitement des données personnelles collectées via les formulaires, finalités, conservation et droits RGPD.",
       },
       {
         label: "Conditions générales d'utilisation",

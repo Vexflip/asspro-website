@@ -1,0 +1,24 @@
+# One-command build + run for the ASSPRO site.
+#
+#   1. cp .env.docker.example .env   # then fill in the SMTP_* values
+#   2. docker compose up -d --build
+#
+# The app listens on http://localhost:3000 and reports health via /api/health.
+# The container refuses to boot in production without valid SMTP config
+# (fail-fast, see src/instrumentation.ts) — the .env file is mandatory.
+
+services:
+  web:
+    build:
+      context: .
+      args:
+        # Build-time only: NEXT_PUBLIC_* is inlined into the bundle at build.
+        # Interpolated from .env (defaults to the production domain).
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://asspro.fr}
+    image: asspro-website
+    ports:
+      - "3000:3000"
+    # Runtime config (SMTP_* / MAIL_FROM / CONTACT_TO / ADHESION_TO).
+    env_file: .env
+    restart: unless-stopped
+    # HEALTHCHECK is inherited from the Dockerfile (wget /api/health).

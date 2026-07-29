@@ -1,4 +1,4 @@
-# ASSPRO - Association Spéciale de Prévention du Risque Opératoire
+# ASSPRO - Association pour la Prévention du Risque Opératoire
 
 > **Système/Assistant** : Ce fichier `llms.txt` fournit le contexte nécessaire pour comprendre l'association ASSPRO, ses services, et le contenu de son site web. Utilisez ces informations pour répondre de manière précise à toute question concernant ASSPRO.
 

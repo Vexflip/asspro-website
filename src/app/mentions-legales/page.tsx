@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/ui/PageHero";
 import Link from "next/link";
+import { canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
+  alternates: canonical("/mentions-legales"),
   description:
     "Mentions légales du site ASSPRO — Association pour la Prévention du Risque Opératoire. Informations sur l'éditeur, l'hébergeur, la propriété intellectuelle et la protection des données.",
 };
@@ -299,11 +301,11 @@ export default function MentionsLegalesPage() {
               </div>
               <div className="prose prose-sm max-w-none text-muted leading-relaxed space-y-4">
                 <p>
-                  Lors de votre visite sur le Site, des cookies peuvent être
-                  déposés sur votre terminal (ordinateur, tablette,
-                  smartphone). Un cookie est un petit fichier texte qui permet
-                  d&apos;enregistrer des informations relatives à votre
-                  navigation.
+                  Le Site utilise uniquement des cookies strictement
+                  nécessaires à son bon fonctionnement. Un cookie est un petit
+                  fichier texte déposé sur votre terminal (ordinateur, tablette,
+                  smartphone) qui permet d&apos;enregistrer des informations
+                  relatives à votre navigation.
                 </p>
 
                 <h3 className="text-dark font-semibold text-base mt-6">
@@ -311,15 +313,16 @@ export default function MentionsLegalesPage() {
                 </h3>
                 <ul className="list-disc list-inside space-y-1">
                   <li>
-                    <strong>Cookies essentiels :</strong> nécessaires au
-                    fonctionnement du Site (session, préférences).
-                  </li>
-                  <li>
-                    <strong>Cookies analytiques :</strong> permettent de
-                    mesurer l&apos;audience du Site et d&apos;analyser la
-                    navigation (ex. : Google Analytics).
+                    <strong>Cookies essentiels :</strong> strictement
+                    nécessaires au fonctionnement du Site (session,
+                    préférences). Ils ne requièrent pas votre consentement.
                   </li>
                 </ul>
+                <p>
+                  Le Site n&apos;utilise aucun cookie de mesure d&apos;audience
+                  ni de suivi publicitaire ; aucun bandeau de consentement
+                  n&apos;est donc requis.
+                </p>
 
                 <h3 className="text-dark font-semibold text-base mt-6">
                   Gestion des cookies

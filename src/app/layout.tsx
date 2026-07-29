@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WelcomeScreen from "@/components/ui/WelcomeScreen";
 import GlobalScrollbar from "@/components/ui/GlobalScrollbar";
+import { SITE_URL, canonical } from "@/lib/site";
 import "overlayscrollbars/overlayscrollbars.css";
 import "./globals.css";
 
@@ -20,7 +21,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://asspro.vexflip.fr"),
+  metadataBase: new URL(SITE_URL),
+  alternates: canonical("/"),
   title: {
     default: "ASSPRO — Prévention et maîtrise des risques au bloc opératoire",
     template: "%s | ASSPRO",
@@ -42,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: "https://asspro.vexflip.fr",
+    url: SITE_URL,
     siteName: "ASSPRO",
     title: "ASSPRO — Prévention et maîtrise des risques au bloc opératoire",
     description:
@@ -80,8 +82,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalOrganization",
   name: "ASSPRO",
-  url: "https://asspro.vexflip.fr",
-  logo: "https://asspro.vexflip.fr/images/logo-dark-bg.webp",
+  url: SITE_URL,
+  logo: `${SITE_URL}/images/logo-dark-bg.webp`,
   description: "Association dédiée à la prévention et à la maîtrise des risques au bloc opératoire.",
   address: {
     "@type": "PostalAddress",
@@ -116,10 +118,18 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col overflow-x-hidden" data-overlayscrollbars-initialize>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:font-semibold focus:text-white"
+        >
+          Aller au contenu principal
+        </a>
         <GlobalScrollbar />
         <WelcomeScreen />
         <Navbar />
-        <main className="flex-1 w-full overflow-x-hidden">{children}</main>
+        <main id="main-content" className="flex-1 w-full overflow-x-hidden">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

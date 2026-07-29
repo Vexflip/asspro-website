@@ -9,9 +9,11 @@ import {
 import PageHero from "@/components/ui/PageHero";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import ContactForm from "@/components/ui/ContactForm";
+import { canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
+  alternates: canonical("/contact"),
   description:
     "Contactez ASSPRO pour vos questions sur la prévention des risques, les formations ou l'accompagnement médico-légal. Assistance 24/7.",
 };

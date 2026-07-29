@@ -6,9 +6,11 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 import { partners } from "@/data/partners";
+import { canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Nos Partenaires",
+  alternates: canonical("/partenaires"),
   description:
     "Découvrez les partenaires d'ASSPRO engagés dans la sécurité et la qualité des soins au bloc opératoire.",
 };

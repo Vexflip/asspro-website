@@ -13,9 +13,11 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import GovernanceSection from "@/components/sections/GovernanceSection";
+import { canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "À propos",
+  alternates: canonical("/a-propos"),
   description:
     "Découvrez ASSPRO, notre mission, nos valeurs, notre histoire et l'équipe engagée dans la prévention des risques au bloc opératoire.",
 };
@@ -103,7 +105,7 @@ export default function AProposPage() {
                 Notre mission
               </h2>
               <p className="text-muted leading-relaxed mb-4">
-                ASSPRO (Association Spéciale de Prévention du Risque Opératoire)
+                ASSPRO (Association pour la Prévention du Risque Opératoire)
                 est une association dédiée à la prévention et à la maîtrise
                 des risques au bloc opératoire.
               </p>

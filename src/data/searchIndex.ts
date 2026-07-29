@@ -31,7 +31,7 @@ const pages: SearchEntry[] = [
     description:
       "Découvrez ASSPRO, notre mission, nos valeurs, notre histoire et l'équipe engagée dans la prévention des risques au bloc opératoire.",
     keywords:
-      "qui sommes-nous notre mission ASSPRO Association Spéciale de Prévention du Risque Opératoire maîtrise des risques au bloc opératoire nos valeurs prévention formation accompagnement médico-légal notre histoire 1991 création ARRES 2000 plateforme e-learning 2010 ASSPRO Truck camion itinérant 2018 gouvernance conseil d'administration la gestion des risques identification analyse barrières de sécurité protocoles événements indésirables travail collaboratif chirurgien anesthésiste infirmier de bloc sécurité du patient",
+      "qui sommes-nous notre mission ASSPRO Association pour la Prévention du Risque Opératoire maîtrise des risques au bloc opératoire nos valeurs prévention formation accompagnement médico-légal notre histoire 1991 création ARRES 2000 plateforme e-learning 2010 ASSPRO Truck camion itinérant 2018 gouvernance conseil d'administration la gestion des risques identification analyse barrières de sécurité protocoles événements indésirables travail collaboratif chirurgien anesthésiste infirmier de bloc sécurité du patient",
   },
   {
     id: "page-formations",
@@ -82,6 +82,16 @@ const pages: SearchEntry[] = [
       "Éditeur, hébergeur, propriété intellectuelle et protection des données du site ASSPRO.",
     keywords:
       "mentions légales éditeur du site Association pour la Prévention du Risque Opératoire association loi 1901 siège social SIREN 527 924 658 directeur de la publication Patrick-Georges Yavordios président hébergeur o2switch Clermont-Ferrand propriété intellectuelle crédits photographiques Unsplash données personnelles RGPD responsable du traitement données collectées vos droits accès rectification effacement cookies limitation de responsabilité droit applicable CNIL loi confiance dans l'économie numérique",
+  },
+  {
+    id: "page-politique-de-confidentialite",
+    type: "page",
+    title: "Politique de confidentialité",
+    href: "/politique-de-confidentialite",
+    description:
+      "Traitement des données personnelles collectées par ASSPRO via les formulaires de contact et d'adhésion.",
+    keywords:
+      "politique de confidentialité RGPD données personnelles responsable du traitement données collectées formulaire de contact formulaire d'adhésion finalités base légale consentement destinataires durée de conservation sécurité vos droits accès rectification effacement opposition portabilité retrait du consentement CNIL cookies protection des données vie privée",
   },
   {
     id: "page-conditions-generales",

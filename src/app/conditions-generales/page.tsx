@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/ui/PageHero";
 import Link from "next/link";
+import { canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Conditions générales d'utilisation",
+  alternates: canonical("/conditions-generales"),
   description:
     "Conditions générales d'utilisation du site ASSPRO — Association pour la Prévention du Risque Opératoire. Règles d'usage, propriété intellectuelle et responsabilité.",
 };
@@ -42,7 +44,7 @@ const cguSections = [
   {
     number: "7",
     title: "Cookies",
-    content: `Lors de votre navigation sur le Site, des cookies peuvent être déposés sur votre terminal. Un bandeau de consentement vous est présenté lors de votre première visite, conformément à la réglementation en vigueur.\n\nVous pouvez à tout moment gérer vos préférences en matière de cookies via les paramètres de votre navigateur. Pour plus de détails, consultez la section « Cookies » de nos Mentions légales.`,
+    content: `Le Site utilise uniquement des cookies strictement nécessaires à son fonctionnement (cookies essentiels). Aucun cookie de mesure d'audience ou de suivi publicitaire n'étant déposé, aucun bandeau de consentement n'est requis.\n\nVous pouvez à tout moment gérer vos préférences en matière de cookies via les paramètres de votre navigateur. Pour plus de détails, consultez la section « Cookies » de nos Mentions légales.`,
   },
   {
     number: "8",
