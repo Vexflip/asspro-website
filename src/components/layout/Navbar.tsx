@@ -7,6 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { Menu, ChevronDown, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navigation } from "@/data/navigation";
+import { LINKEDIN_URL } from "@/lib/org";
 import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
@@ -136,7 +137,7 @@ export default function Navbar() {
                 />
             </form>
             <a
-              href="https://www.linkedin.com/company/asspro/"
+              href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className={cn(

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/ui/PageHero";
 import Link from "next/link";
 import { canonical } from "@/lib/site";
+import { CONTACT_EMAIL } from "@/lib/org";
 
 export const metadata: Metadata = {
   title: "Politique de confidentialité",
@@ -40,10 +41,10 @@ export default function PolitiqueConfidentialitePage() {
                   Pour toute question relative au traitement de vos données,
                   vous pouvez écrire à{" "}
                   <a
-                    href="mailto:contact@asspro.fr"
+                    href={`mailto:${CONTACT_EMAIL}`}
                     className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                   >
-                    contact@asspro.fr
+                    {CONTACT_EMAIL}
                   </a>{" "}
                   ou par courrier à l&apos;adresse du siège social.
                 </p>
@@ -212,10 +213,10 @@ export default function PolitiqueConfidentialitePage() {
                   Pour exercer ces droits, contactez l&apos;Association par
                   e-mail à{" "}
                   <a
-                    href="mailto:contact@asspro.fr"
+                    href={`mailto:${CONTACT_EMAIL}`}
                     className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                   >
-                    contact@asspro.fr
+                    {CONTACT_EMAIL}
                   </a>{" "}
                   ou par courrier au siège social. En cas de litige, vous pouvez
                   introduire une réclamation auprès de la Commission Nationale
@@ -273,10 +274,10 @@ export default function PolitiqueConfidentialitePage() {
                   Formulaire de contact
                 </Link>
                 <a
-                  href="mailto:contact@asspro.fr"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="inline-flex items-center gap-2 px-5 py-2.5 border border-primary text-primary text-sm font-medium rounded-lg hover:bg-primary/5 transition-colors"
                 >
-                  contact@asspro.fr
+                  {CONTACT_EMAIL}
                 </a>
               </div>
             </article>

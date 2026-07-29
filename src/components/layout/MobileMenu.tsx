@@ -5,6 +5,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Phone, AlertTriangle, X, Search } from "lucide-react";
 import { navigation } from "@/data/navigation";
+import { PHONE_EMERGENCY, PHONE_MAIN, telHref } from "@/lib/org";
 
 interface MobileMenuProps {
   open: boolean;
@@ -121,18 +122,18 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
 
               <div className="mt-8 pt-6 border-t border-surface space-y-4">
                 <a
-                  href="tel:0155071515"
+                  href={telHref(PHONE_MAIN)}
                   className="flex items-center gap-2 text-dark font-medium"
                 >
                   <Phone className="w-4 h-4 text-primary" />
-                  01.55.07.15.15
+                  {PHONE_MAIN}
                 </a>
                 <a
-                  href="tel:0485858585"
+                  href={telHref(PHONE_EMERGENCY)}
                   className="flex items-center gap-2 text-emergency font-medium"
                 >
                   <AlertTriangle className="w-4 h-4" />
-                  Assistance 24/7 : 04 85 85 85 85
+                  Assistance 24/7 : {PHONE_EMERGENCY}
                 </a>
                 <Link
                   href="/formations"

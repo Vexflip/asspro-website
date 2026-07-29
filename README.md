@@ -36,9 +36,40 @@ Scripts utiles :
 
 Toutes les valeurs sont documentées dans [`.env.example`](./.env.example).
 
+Les variables se répartissent en deux familles :
+
+- **`NEXT_PUBLIC_*` — lues au *build***. Elles sont inlinées dans le bundle par
+  `next build` et **toutes obligatoires** : le build échoue immédiatement si
+  l'une manque (`src/lib/org.ts`). Les modifier impose de **reconstruire
+  l'image** — une valeur fournie au runtime est ignorée. En Docker, elles sont
+  passées en `--build-arg` (voir `Dockerfile` / `docker-compose.yml`).
+- **Les autres — lues au *runtime*** par le serveur. Modifiables sans rebuild,
+  mais le conteneur refuse de démarrer si elles manquent
+  (`src/instrumentation.ts`).
+
+### Build (`NEXT_PUBLIC_*`, toutes obligatoires)
+
+| Variable | Description |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | URL canonique (métadonnées, `robots.txt`, `sitemap`). |
+| `NEXT_PUBLIC_ORG_LEGAL_NAME` | Raison sociale (mentions légales, CGU). |
+| `NEXT_PUBLIC_ORG_LEGAL_FORM` | Forme juridique. |
+| `NEXT_PUBLIC_ORG_SIREN` | Numéro SIREN. |
+| `NEXT_PUBLIC_ORG_DECLARATION` | Mention de déclaration en préfecture. |
+| `NEXT_PUBLIC_ORG_DIRECTOR` | Directeur de la publication. |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | E-mail affiché (pied de page, contact, mentions). |
+| `NEXT_PUBLIC_PHONE_MAIN` | Standard. Le lien `tel:` et le format international du JSON-LD en sont dérivés. |
+| `NEXT_PUBLIC_PHONE_EMERGENCY` | Assistance 24/7. |
+| `NEXT_PUBLIC_ADDRESS_STREET` / `_POSTAL_CODE` / `_CITY` | Adresse du siège social. |
+| `NEXT_PUBLIC_ADDRESS_COUNTRY` | Code pays ISO 3166-1 alpha-2 (JSON-LD). |
+| `NEXT_PUBLIC_LINKEDIN_URL` | Lien LinkedIn (barre de navigation, pied de page, `sameAs`). |
+| `NEXT_PUBLIC_HOST_NAME` / `_ADDRESS` / `_PHONE` / `_URL` | Hébergeur — mention obligatoire (LCEN). |
+| `NEXT_PUBLIC_MAPS_EMBED_URL` | Carte Google Maps de la page contact (encode les coordonnées GPS). |
+
+### Runtime
+
 | Variable | Requise | Description |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | build | URL canonique (métadonnées, `robots.txt`, `sitemap`). **Inlinée au build** — en Docker, passez-la en `--build-arg`. |
 | `SMTP_HOST` / `SMTP_USER` / `SMTP_PASS` | oui | Identifiants SMTP pour l'envoi des e-mails. |
 | `SMTP_PORT` | non | Port SMTP (défaut `587`). |
 | `SMTP_SECURE` | non | `true` pour le port 465 (SSL), sinon STARTTLS. |
@@ -72,9 +103,15 @@ inclus dans l'image (`.dockerignore` exclut `.env*`).
 
 ### Docker (build + run manuels)
 
+> ⚠️ Le build exige **toutes** les variables `NEXT_PUBLIC_*` (tableau ci-dessus).
+> Il échoue sinon, en nommant celle qui manque. `docker compose` les transmet
+> automatiquement depuis `.env` ; en build manuel il faut les passer une à une.
+
 ```bash
-# Construire l'image (fournir l'URL canonique de l'environnement cible)
-docker build --build-arg NEXT_PUBLIC_SITE_URL=https://asspro.fr -t asspro-website .
+# Construire l'image — chaque NEXT_PUBLIC_* doit être fourni en --build-arg.
+# Le plus simple est de les lire depuis un .env déjà rempli :
+docker build $(grep -E '^NEXT_PUBLIC_' .env | sed 's/^/--build-arg /' | tr '\n' ' ') \
+  -t asspro-website .
 
 # Lancer le conteneur avec la configuration SMTP au runtime
 docker run --rm -p 3000:3000 \
@@ -98,6 +135,7 @@ docker run --rm -p 3000:3000 \
 - `src/app/` — routes (App Router), incl. `api/contact` et `api/adhesion` (handlers de route).
 - `src/components/` — composants UI et de layout.
 - `src/lib/` — `mail.ts` (Nodemailer), `schemas.ts` (validation Zod partagée client/serveur),
-  `rate-limit.ts`, `http.ts` (garde de taille de requête), `site.ts` (URL canonique).
+  `rate-limit.ts`, `http.ts` (garde de taille de requête), `site.ts` (URL canonique),
+  `org.ts` (identité et coordonnées de l'association, pilotées par l'environnement).
 - `src/data/` — données de contenu (partenaires, formations, index de recherche).
 - `src/instrumentation.ts` — validation « fail-fast » des variables d'environnement au démarrage.

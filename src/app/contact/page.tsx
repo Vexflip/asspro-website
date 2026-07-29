@@ -10,6 +10,16 @@ import PageHero from "@/components/ui/PageHero";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import ContactForm from "@/components/ui/ContactForm";
 import { canonical } from "@/lib/site";
+import {
+  ADDRESS_CITY,
+  ADDRESS_POSTAL_CODE,
+  ADDRESS_STREET,
+  CONTACT_EMAIL,
+  MAPS_EMBED_URL,
+  PHONE_EMERGENCY,
+  PHONE_MAIN,
+  telHref,
+} from "@/lib/org";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -58,9 +68,9 @@ export default function ContactPage() {
                       <div>
                         <p className="font-medium text-dark">Adresse</p>
                         <p className="text-sm text-muted">
-                          60 rue de la Chaussée d&apos;Antin
+                          {ADDRESS_STREET}
                           <br />
-                          75009 Paris, France
+                          {ADDRESS_POSTAL_CODE} {ADDRESS_CITY}
                         </p>
                       </div>
                     </div>
@@ -71,10 +81,10 @@ export default function ContactPage() {
                       <div>
                         <p className="font-medium text-dark">Téléphone</p>
                         <a
-                          href="tel:0155071515"
+                          href={telHref(PHONE_MAIN)}
                           className="text-sm text-muted hover:text-primary transition-colors"
                         >
-                          01.55.07.15.15
+                          {PHONE_MAIN}
                         </a>
                       </div>
                     </div>
@@ -85,10 +95,10 @@ export default function ContactPage() {
                       <div>
                         <p className="font-medium text-dark">Email</p>
                         <a
-                          href="mailto:contact@asspro.fr"
+                          href={`mailto:${CONTACT_EMAIL}`}
                           className="text-sm text-muted hover:text-primary transition-colors"
                         >
-                          contact@asspro.fr
+                          {CONTACT_EMAIL}
                         </a>
                       </div>
                     </div>
@@ -98,7 +108,7 @@ export default function ContactPage() {
                 {/* Map */}
                 <div className="bg-surface rounded-2xl overflow-hidden flex-1 min-h-48">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.2158371393206!2d2.3352349!3d48.8755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e3eed81e7c5%3A0x0!2s60+Rue+de+la+Chauss%C3%A9e+d&#39;Antin%2C+75009+Paris!5e0!3m2!1sfr!2sfr!4v1"
+                    src={MAPS_EMBED_URL}
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -128,10 +138,10 @@ export default function ContactPage() {
                 </p>
               </div>
               <a
-                href="tel:0485858585"
+                href={telHref(PHONE_EMERGENCY)}
                 className="text-xl font-bold text-emergency hover:text-emergency/80 transition-colors shrink-0"
               >
-                04 85 85 85 85
+                {PHONE_EMERGENCY}
               </a>
             </div>
           </ScrollReveal>

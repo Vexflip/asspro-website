@@ -5,6 +5,16 @@ import Footer from "@/components/layout/Footer";
 import WelcomeScreen from "@/components/ui/WelcomeScreen";
 import GlobalScrollbar from "@/components/ui/GlobalScrollbar";
 import { SITE_URL, canonical } from "@/lib/site";
+import {
+  ADDRESS_CITY,
+  ADDRESS_COUNTRY,
+  ADDRESS_POSTAL_CODE,
+  ADDRESS_STREET,
+  CONTACT_EMAIL,
+  LINKEDIN_URL,
+  PHONE_MAIN,
+  toE164,
+} from "@/lib/org";
 import "overlayscrollbars/overlayscrollbars.css";
 import "./globals.css";
 
@@ -87,20 +97,20 @@ const jsonLd = {
   description: "Association dédiée à la prévention et à la maîtrise des risques au bloc opératoire.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "60 rue de la Chaussée d'Antin",
-    addressLocality: "Paris",
-    postalCode: "75009",
-    addressCountry: "FR"
+    streetAddress: ADDRESS_STREET,
+    addressLocality: ADDRESS_CITY,
+    postalCode: ADDRESS_POSTAL_CODE,
+    addressCountry: ADDRESS_COUNTRY
   },
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+33-1-55-07-15-15",
+    telephone: toE164(PHONE_MAIN),
     contactType: "customer service",
-    email: "contact@asspro.fr",
+    email: CONTACT_EMAIL,
     availableLanguage: "French"
   },
   sameAs: [
-    "https://www.linkedin.com/company/asspro/"
+    LINKEDIN_URL
   ]
 };
 

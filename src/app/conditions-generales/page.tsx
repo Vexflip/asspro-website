@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/ui/PageHero";
 import Link from "next/link";
-import { canonical } from "@/lib/site";
+import { SITE_URL, canonical } from "@/lib/site";
+import { ADDRESS_COMMA, ORG_LEGAL_NAME, displayUrl } from "@/lib/org";
 
 export const metadata: Metadata = {
   title: "Conditions générales d'utilisation",
@@ -14,7 +15,7 @@ const cguSections = [
   {
     number: "1",
     title: "Objet",
-    content: `Les présentes conditions générales d'utilisation (ci-après « CGU ») ont pour objet de définir les règles d'utilisation du site internet https://asspro.fr (ci-après « le Site »), édité par l'Association pour la Prévention du Risque Opératoire (ASSPRO), dont le siège social est situé au 60 rue de la Chaussée d'Antin, 75009 Paris.\n\nEn accédant au Site, l'utilisateur accepte sans réserve les présentes CGU. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser le Site.`,
+    content: `Les présentes conditions générales d'utilisation (ci-après « CGU ») ont pour objet de définir les règles d'utilisation du site internet ${SITE_URL} (ci-après « le Site »), édité par l'${ORG_LEGAL_NAME}, dont le siège social est situé au ${ADDRESS_COMMA}.\n\nEn accédant au Site, l'utilisateur accepte sans réserve les présentes CGU. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser le Site.`,
   },
   {
     number: "2",
@@ -79,13 +80,12 @@ export default function ConditionsGeneralesPage() {
               Les présentes conditions générales d&apos;utilisation régissent
               l&apos;accès et l&apos;utilisation du site{" "}
               <a
-                href="https://asspro.fr"
+                href={SITE_URL}
                 className="text-primary hover:text-primary-light transition-colors font-medium"
               >
-                asspro.fr
+                {displayUrl(SITE_URL)}
               </a>
-              , édité par l&apos;Association pour la Prévention du Risque
-              Opératoire (ASSPRO). En naviguant sur ce site, vous acceptez
+              , édité par l&apos;{ORG_LEGAL_NAME}. En naviguant sur ce site, vous acceptez
               l&apos;intégralité des conditions ci-dessous.
             </p>
           </div>

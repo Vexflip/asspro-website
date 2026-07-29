@@ -3,6 +3,17 @@ import { formations, categoryLabels } from "./formations";
 import { guides } from "./guides";
 import { boardMembers } from "./governance";
 import { partners } from "./partners";
+import {
+  ADDRESS_CITY,
+  ADDRESS_POSTAL_CODE,
+  ADDRESS_STREET,
+  CONTACT_EMAIL,
+  HOST_NAME,
+  ORG_LEGAL_NAME,
+  ORG_SIREN,
+  PHONE_EMERGENCY,
+  PHONE_MAIN,
+} from "@/lib/org";
 
 // Curated, site-wide search index.
 //
@@ -61,7 +72,7 @@ const pages: SearchEntry[] = [
     description:
       "Contactez ASSPRO pour vos questions sur la prévention des risques, les formations ou l'accompagnement médico-légal. Assistance 24/7.",
     keywords:
-      "contact contactez-nous envoyez-nous un message nos coordonnées adresse 60 rue de la Chaussée d'Antin 75009 Paris France téléphone 01 55 07 15 15 email contact@asspro.fr localisation carte plan assistance médico-légale 24/7 24 heures sur 24 7 jours sur 7 04 85 85 85 85 renseignements",
+      `contact contactez-nous envoyez-nous un message nos coordonnées adresse ${ADDRESS_STREET} ${ADDRESS_POSTAL_CODE} ${ADDRESS_CITY} téléphone ${PHONE_MAIN} email ${CONTACT_EMAIL} localisation carte plan assistance médico-légale 24/7 24 heures sur 24 7 jours sur 7 ${PHONE_EMERGENCY} renseignements`,
   },
   {
     id: "page-partenaires",
@@ -81,7 +92,7 @@ const pages: SearchEntry[] = [
     description:
       "Éditeur, hébergeur, propriété intellectuelle et protection des données du site ASSPRO.",
     keywords:
-      "mentions légales éditeur du site Association pour la Prévention du Risque Opératoire association loi 1901 siège social SIREN 527 924 658 directeur de la publication Patrick-Georges Yavordios président hébergeur o2switch Clermont-Ferrand propriété intellectuelle crédits photographiques Unsplash données personnelles RGPD responsable du traitement données collectées vos droits accès rectification effacement cookies limitation de responsabilité droit applicable CNIL loi confiance dans l'économie numérique",
+      `mentions légales éditeur du site ${ORG_LEGAL_NAME} association loi 1901 siège social SIREN ${ORG_SIREN} directeur de la publication Patrick-Georges Yavordios président hébergeur ${HOST_NAME} propriété intellectuelle crédits photographiques Unsplash données personnelles RGPD responsable du traitement données collectées vos droits accès rectification effacement cookies limitation de responsabilité droit applicable CNIL loi confiance dans l'économie numérique`,
   },
   {
     id: "page-politique-de-confidentialite",

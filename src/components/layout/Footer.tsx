@@ -1,6 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin, AlertTriangle } from "lucide-react";
+import {
+  ADDRESS_COMMA,
+  CONTACT_EMAIL,
+  LINKEDIN_URL,
+  PHONE_EMERGENCY,
+  PHONE_MAIN,
+  telHref,
+} from "@/lib/org";
 
 export default function Footer() {
   return (
@@ -54,33 +62,33 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-white/60 text-sm">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                60 rue de la Chaussée d&apos;Antin, 75009 Paris
+                {ADDRESS_COMMA}
               </li>
               <li>
                 <a
-                  href="tel:0155071515"
+                  href={telHref(PHONE_MAIN)}
                   className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm"
                 >
                   <Phone className="w-4 h-4 shrink-0" />
-                  01.55.07.15.15
+                  {PHONE_MAIN}
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:0485858585"
+                  href={telHref(PHONE_EMERGENCY)}
                   className="flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors text-sm font-medium"
                 >
                   <AlertTriangle className="w-4 h-4 shrink-0" />
-                  Assistance 24/7 : 04 85 85 85 85
+                  Assistance 24/7 : {PHONE_EMERGENCY}
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:contact@asspro.fr"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm"
                 >
                   <Mail className="w-4 h-4 shrink-0" />
-                  contact@asspro.fr
+                  {CONTACT_EMAIL}
                 </a>
               </li>
             </ul>
@@ -92,7 +100,7 @@ export default function Footer() {
           <p>&copy; {new Date().getFullYear()} ASSPRO. Tous droits réservés.</p>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6 items-center">
             <a
-              href="https://www.linkedin.com/company/asspro/"
+              href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors flex items-center gap-1.5"

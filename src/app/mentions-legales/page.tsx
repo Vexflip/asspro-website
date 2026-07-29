@@ -2,6 +2,22 @@ import type { Metadata } from "next";
 import PageHero from "@/components/ui/PageHero";
 import Link from "next/link";
 import { canonical } from "@/lib/site";
+import {
+  ADDRESS_INLINE,
+  CONTACT_EMAIL,
+  HOST_ADDRESS,
+  HOST_NAME,
+  HOST_PHONE,
+  HOST_URL,
+  ORG_DECLARATION,
+  ORG_DIRECTOR,
+  ORG_LEGAL_FORM,
+  ORG_LEGAL_NAME,
+  ORG_SIREN,
+  PHONE_MAIN,
+  displayUrl,
+  telHref,
+} from "@/lib/org";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
@@ -34,66 +50,54 @@ export default function MentionsLegalesPage() {
                   <span className="font-semibold text-dark">
                     Raison sociale
                   </span>
-                  <span className="text-muted">
-                    Association pour la Prévention du Risque Opératoire (ASSPRO)
-                  </span>
+                  <span className="text-muted">{ORG_LEGAL_NAME}</span>
 
                   <span className="font-semibold text-dark">
                     Forme juridique
                   </span>
-                  <span className="text-muted">
-                    Association loi 1901
-                  </span>
+                  <span className="text-muted">{ORG_LEGAL_FORM}</span>
 
                   <span className="font-semibold text-dark">
                     Siège social
                   </span>
-                  <span className="text-muted">
-                    60 rue de la Chaussée d&apos;Antin – 75009 Paris
-                  </span>
+                  <span className="text-muted">{ADDRESS_INLINE}</span>
 
                   <span className="font-semibold text-dark">
                     Déclaration
                   </span>
-                  <span className="text-muted">
-                    Déclarée à la Préfecture de l&apos;Isère le 5 septembre 1997
-                    — n° 0381025802
-                  </span>
+                  <span className="text-muted">{ORG_DECLARATION}</span>
 
                   <span className="font-semibold text-dark">
                     SIREN
                   </span>
-                  <span className="text-muted">527 924 658</span>
+                  <span className="text-muted">{ORG_SIREN}</span>
 
                   <span className="font-semibold text-dark">
                     Téléphone
                   </span>
                   <span className="text-muted">
                     <a
-                      href="tel:0155071515"
+                      href={telHref(PHONE_MAIN)}
                       className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                     >
-                      01 55 07 15 15
+                      {PHONE_MAIN}
                     </a>
                   </span>
 
                   <span className="font-semibold text-dark">E-mail</span>
                   <span className="text-muted">
                     <a
-                      href="mailto:contact@asspro.fr"
+                      href={`mailto:${CONTACT_EMAIL}`}
                       className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                     >
-                      contact@asspro.fr
+                      {CONTACT_EMAIL}
                     </a>
                   </span>
 
                   <span className="font-semibold text-dark">
                     Directeur de la publication
                   </span>
-                  <span className="text-muted">
-                    Monsieur Patrick-Georges YAVORDIOS, en qualité de Président
-                    de l&apos;Association
-                  </span>
+                  <span className="text-muted">{ORG_DIRECTOR}</span>
                 </div>
               </div>
             </article>
@@ -109,32 +113,30 @@ export default function MentionsLegalesPage() {
               <div className="bg-surface rounded-2xl p-6 md:p-8 space-y-3">
                 <div className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-y-3 gap-x-4 text-sm">
                   <span className="font-semibold text-dark">Nom</span>
-                  <span className="text-muted">o2switch</span>
+                  <span className="text-muted">{HOST_NAME}</span>
 
                   <span className="font-semibold text-dark">Adresse</span>
-                  <span className="text-muted">
-                    Chem. des Pardiaux, 63000 Clermont-Ferrand, France
-                  </span>
+                  <span className="text-muted">{HOST_ADDRESS}</span>
 
                   <span className="font-semibold text-dark">Téléphone</span>
                   <span className="text-muted">
                     <a
-                      href="tel:0444446040"
+                      href={telHref(HOST_PHONE)}
                       className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                     >
-                      04 44 44 60 40
+                      {HOST_PHONE}
                     </a>
                   </span>
 
                   <span className="font-semibold text-dark">Site web</span>
                   <span className="text-muted">
                     <a
-                      href="https://www.o2switch.fr"
+                      href={HOST_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                     >
-                      www.o2switch.fr
+                      {displayUrl(HOST_URL)}
                     </a>
                   </span>
                 </div>
@@ -196,10 +198,10 @@ export default function MentionsLegalesPage() {
                   Pour obtenir une autorisation, veuillez envoyer un courrier
                   électronique à{" "}
                   <a
-                    href="mailto:contact@asspro.fr"
+                    href={`mailto:${CONTACT_EMAIL}`}
                     className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                   >
-                    contact@asspro.fr
+                    {CONTACT_EMAIL}
                   </a>{" "}
                   ou un courrier postal au siège social de l&apos;Association,
                   en précisant : (a) votre nom ou le nom du contact technique ;
@@ -267,10 +269,10 @@ export default function MentionsLegalesPage() {
                   Pour exercer ces droits, vous pouvez contacter
                   l&apos;Association par e-mail à{" "}
                   <a
-                    href="mailto:contact@asspro.fr"
+                    href={`mailto:${CONTACT_EMAIL}`}
                     className="text-primary hover:text-primary-light transition-colors underline underline-offset-2"
                   >
-                    contact@asspro.fr
+                    {CONTACT_EMAIL}
                   </a>{" "}
                   ou par courrier à l&apos;adresse du siège social.
                 </p>
@@ -408,10 +410,10 @@ export default function MentionsLegalesPage() {
                   Formulaire de contact
                 </Link>
                 <a
-                  href="mailto:contact@asspro.fr"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="inline-flex items-center gap-2 px-5 py-2.5 border border-primary text-primary text-sm font-medium rounded-lg hover:bg-primary/5 transition-colors"
                 >
-                  contact@asspro.fr
+                  {CONTACT_EMAIL}
                 </a>
               </div>
             </article>
