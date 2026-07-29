@@ -92,7 +92,7 @@ export default function AProposPage() {
             <ScrollReveal direction="left">
               <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&h=600&fit=crop"
+                  src="/images/formations/equipe-medicale.webp"
                   alt="Équipe médicale"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -226,7 +226,7 @@ export default function AProposPage() {
             <ScrollReveal direction="right">
               <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop"
+                  src="/images/formations/gestion-risques-bloc.webp"
                   alt="Gestion des risques au bloc opératoire"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"

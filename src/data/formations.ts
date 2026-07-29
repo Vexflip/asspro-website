@@ -9,7 +9,7 @@ export const formations: Training[] = [
     category: "arres",
     date: "15-16 Avril 2026",
     location: "Paris",
-    image: "https://images.unsplash.com/photo-1640876777002-badf6aee5bcc?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/images/formations/arres-gestion-risques.webp",
     duration: "2 jours",
   },
   {
@@ -20,7 +20,7 @@ export const formations: Training[] = [
     category: "simulation",
     date: "22-23 Mai 2026",
     location: "Lyon",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&h=400&fit=crop",
+    image: "/images/formations/equipe-medicale.webp",
     duration: "2 jours",
   },
   {
@@ -31,7 +31,7 @@ export const formations: Training[] = [
     category: "elearning",
     date: "Disponible en ligne",
     location: "En ligne",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop",
+    image: "/images/formations/elearning-securite-patient.webp",
     duration: "8 heures",
   },
   {
@@ -42,7 +42,7 @@ export const formations: Training[] = [
     category: "softkills",
     date: "10-11 Juin 2026",
     location: "Marseille",
-    image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&h=400&fit=crop",
+    image: "/images/formations/softskills-communication.webp",
     duration: "2 jours",
   },
   {
@@ -53,7 +53,7 @@ export const formations: Training[] = [
     category: "arres",
     date: "3-4 Juillet 2026",
     location: "Bordeaux",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop",
+    image: "/images/formations/gestion-risques-bloc.webp",
     duration: "2 jours",
   },
   {
@@ -64,7 +64,7 @@ export const formations: Training[] = [
     category: "autres",
     date: "Septembre 2026",
     location: "Tournée nationale",
-    image: "https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?w=600&h=400&fit=crop",
+    image: "/images/formations/truck-itinerant.webp",
     duration: "1 jour",
   },
   {
@@ -75,7 +75,7 @@ export const formations: Training[] = [
     category: "elearning",
     date: "Disponible en ligne",
     location: "En ligne",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop",
+    image: "/images/formations/elearning-medico-legal.webp",
     duration: "6 heures",
   },
   {
@@ -86,7 +86,7 @@ export const formations: Training[] = [
     category: "simulation",
     date: "18-19 Octobre 2026",
     location: "Strasbourg",
-    image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600&h=400&fit=crop",
+    image: "/images/formations/simulation-arret-cardiaque.webp",
     duration: "2 jours",
   },
 ];
