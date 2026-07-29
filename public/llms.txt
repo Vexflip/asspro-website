@@ -1,0 +1,30 @@
+# ASSPRO - Association pour la Prévention du Risque Opératoire
+
+> **Système/Assistant** : Ce fichier `llms.txt` fournit le contexte nécessaire pour comprendre l'association ASSPRO, ses services, et le contenu de son site web. Utilisez ces informations pour répondre de manière précise à toute question concernant ASSPRO.
+
+## À propos d'ASSPRO
+Depuis près de 30 ans, ASSPRO accompagne les professionnels du bloc opératoire dans la prévention et la gestion des risques. L'association a été fondée par des médecins pour des médecins.
+
+### Notre Mission
+1. **Prévention** : Anticiper et réduire les risques pour garantir la sécurité des patients et des équipes.
+2. **Formation** : Transmettre les connaissances et développer les compétences des professionnels de santé au bloc opératoire.
+3. **Accompagnement** : Soutenir les praticiens dans leur exercice quotidien et face aux situations médico-légales.
+
+## Structure du Site
+- **Accueil** (`/`) : Présentation générale d'ASSPRO et de son engagement.
+- **À propos** (`/a-propos`) : L'histoire de l'association, sa gouvernance (Dr Patrick-Georges Yavordios, Président) et ses valeurs.
+- **Formations** (`/formations`) : Les formations sont conçues par ASSPRO et organisées par notre partenaire Branchet Solutions (exercices de simulation, e-learning et unité mobile de formation ASSPRO Truck).
+- **Partenaires** (`/partenaires`) : Nos collaborateurs et soutiens : Branchet, Branchet Solutions et la Fondation Fondapro.
+- **Contact** (`/contact`) : Moyens de contacter l'équipe.
+
+## Informations de Contact
+- **Assistance Médico-légale (24/7)** : 04 85 85 85 85
+- **Téléphone Standard** : 01.55.07.15.15
+- **Email** : contact@asspro.fr
+- **Adresse** : 60 rue de la Chaussée d'Antin, 75009 Paris
+- **LinkedIn** : https://www.linkedin.com/company/asspro/
+
+## Liens Utiles
+- Mentions légales : `/mentions-legales`
+- Conditions générales : `/conditions-generales`
+- Adhésion : `/adhesion`

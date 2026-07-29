@@ -1,0 +1,17 @@
+node_modules
+.next
+.git
+.gitignore
+.env*
+*.md
+.vercel
+npm-debug.log*
+yarn-debug.log*
+.pnpm-debug.log*
+*.tsbuildinfo
+next-env.d.ts
+
+# Local tooling and build/report artifacts (git-ignored, never part of a build)
+.claude
+.unlighthouse
+asspro-website.tar
