@@ -72,8 +72,6 @@ const nextConfig: NextConfig = {
     workerThreads: false,
   },
   output: process.env.NEXT_STANDALONE === "true" ? "standalone" : undefined,
-  // Keep nodemailer out of the bundle and load it as a real Node module.
-  serverExternalPackages: ["nodemailer"],
 };
 
 export default nextConfig;

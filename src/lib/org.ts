@@ -8,7 +8,7 @@
  * Voir `node_modules/next/dist/docs/01-app/02-guides/environment-variables.md`.
  *
  * ⚠️ Chaque accès doit rester littéral (`process.env.NEXT_PUBLIC_X`). Un accès
- * dynamique (`process.env[nom]`, comme `requireEnv()` dans `mail.ts`) n'est
+ * dynamique (`process.env[nom]`, comme `requireEnv()` dans `env.ts`) n'est
  * **pas** remplacé par le bundler et vaudrait `undefined` côté navigateur —
  * d'où la signature `required(nom, valeur)` ci-dessous : le nom ne sert qu'au
  * message d'erreur, la valeur est lue littéralement.

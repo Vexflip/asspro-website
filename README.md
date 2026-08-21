@@ -3,7 +3,11 @@
 Site institutionnel de l'**Association pour la Prévention du Risque Opératoire (ASSPRO)**.
 Construit avec **Next.js 16** (App Router, sortie `standalone`), **React 19**, **Tailwind CSS 4**
 et **TypeScript**. Les formulaires de contact et d'adhésion sont traités côté serveur et
-envoyés par e-mail via **Nodemailer**.
+envoyés par e-mail via **RCS** (« Raven Notification Service »), le service de notifications
+interne de Branchet.
+
+> ⚠️ RCS n'est joignable que depuis le réseau interne Branchet : hors de ce réseau,
+> l'application ne peut pas envoyer d'e-mail.
 
 ## Prérequis
 
@@ -18,9 +22,12 @@ cp .env.example .env.local   # puis renseignez les valeurs
 npm run dev                  # http://localhost:3000
 ```
 
-Sans configuration SMTP, l'appli démarre quand même en développement (les envois d'e-mail
-échouent avec un avertissement). En **production**, les variables SMTP manquantes font
+Sans configuration RCS, l'appli démarre quand même en développement (les envois d'e-mail
+échouent avec un avertissement). En **production**, les variables RCS manquantes font
 échouer le démarrage volontairement (voir `src/instrumentation.ts`).
+
+En recette, les messages envoyés sont consultables dans **Maildev** :
+<http://tb-07.branchet.local:8025/>.
 
 Scripts utiles :
 
@@ -70,12 +77,15 @@ Les variables se répartissent en deux familles :
 
 | Variable | Requise | Description |
 | --- | --- | --- |
-| `SMTP_HOST` / `SMTP_USER` / `SMTP_PASS` | oui | Identifiants SMTP pour l'envoi des e-mails. |
-| `SMTP_PORT` | non | Port SMTP (défaut `587`). |
-| `SMTP_SECURE` | non | `true` pour le port 465 (SSL), sinon STARTTLS. |
-| `MAIL_FROM` | oui | Adresse d'expédition des e-mails. |
+| `RCS_BASE_URL` | oui | URL du service RCS (Swagger sur `/api/docs/`). |
+| `RCS_API_KEY` | oui | Clé d'API RCS (porte les permissions de canal). |
+| `RCS_CALLING_USER` | oui | Utilisateur appelant déclaré à chaque notification. |
 | `CONTACT_TO` | oui | Destinataire des messages de contact. |
 | `ADHESION_TO` | non | Destinataire des adhésions (défaut : `CONTACT_TO`). |
+
+> RCS impose son propre expéditeur (`noreply@branchet.fr`) et n'expose pas de « répondre à » :
+> `CONTACT_TO` / `ADHESION_TO` sont donc aussi affichés dans le corps des e-mails de
+> confirmation, seul moyen pour le visiteur de nous répondre.
 
 ## Build & déploiement (Docker standalone)
 
@@ -83,9 +93,9 @@ L'image se construit en trois étapes et produit un serveur `standalone` exécut
 utilisateur non-root. Le conteneur écoute sur `0.0.0.0:3000` et expose un `HEALTHCHECK`
 sur `/api/health`.
 
-> ⚠️ En production, le conteneur **refuse de démarrer** sans configuration SMTP valide
-> (fail-fast, voir `src/instrumentation.ts`). La configuration des variables SMTP est
-> donc obligatoire.
+> ⚠️ En production, le conteneur **refuse de démarrer** sans configuration RCS valide
+> (fail-fast, voir `src/instrumentation.ts`). La configuration des variables RCS est
+> donc obligatoire, et le conteneur doit pouvoir joindre `RCS_BASE_URL`.
 
 ### Docker Compose (recommandé)
 
@@ -93,11 +103,11 @@ Le plus simple : une seule commande. Renseignez les identifiants une fois dans u
 fichier `.env`, puis lancez.
 
 ```bash
-cp .env.example .env          # puis renseignez les valeurs SMTP_*
+cp .env.example .env          # puis renseignez RCS_API_KEY
 docker compose up -d --build  # build de l'image + démarrage sur http://localhost:3000
 ```
 
-`NEXT_PUBLIC_SITE_URL` (URL canonique, inlinée au build) et les variables SMTP au
+`NEXT_PUBLIC_SITE_URL` (URL canonique, inlinée au build) et les variables RCS au
 runtime sont toutes lues depuis ce même `.env`. Le fichier `.env` n'est ni commité ni
 inclus dans l'image (`.dockerignore` exclut `.env*`).
 
@@ -113,10 +123,11 @@ inclus dans l'image (`.dockerignore` exclut `.env*`).
 docker build $(grep -E '^NEXT_PUBLIC_' .env | sed 's/^/--build-arg /' | tr '\n' ' ') \
   -t asspro-website .
 
-# Lancer le conteneur avec la configuration SMTP au runtime
+# Lancer le conteneur avec la configuration RCS au runtime
 docker run --rm -p 3000:3000 \
-  -e SMTP_HOST=... -e SMTP_USER=... -e SMTP_PASS=... \
-  -e MAIL_FROM="ASSPRO <no-reply@asspro.fr>" \
+  -e RCS_BASE_URL=http://tb-07.branchet.local:8097 \
+  -e RCS_API_KEY=... \
+  -e RCS_CALLING_USER=website \
   -e CONTACT_TO=contact@asspro.fr \
   asspro-website
 ```
@@ -134,8 +145,10 @@ docker run --rm -p 3000:3000 \
 
 - `src/app/` — routes (App Router), incl. `api/contact` et `api/adhesion` (handlers de route).
 - `src/components/` — composants UI et de layout.
-- `src/lib/` — `mail.ts` (Nodemailer), `schemas.ts` (validation Zod partagée client/serveur),
+- `src/lib/` — `mail.ts` (gabarits d'e-mails), `rcs.ts` (transport RCS : échange de clés,
+  chiffrement, session), `schemas.ts` (validation Zod partagée client/serveur),
   `rate-limit.ts`, `http.ts` (garde de taille de requête), `site.ts` (URL canonique),
-  `org.ts` (identité et coordonnées de l'association, pilotées par l'environnement).
+  `env.ts` (lecture des variables serveur), `org.ts` (identité et coordonnées de
+  l'association, pilotées par l'environnement).
 - `src/data/` — données de contenu (partenaires, formations, index de recherche).
 - `src/instrumentation.ts` — validation « fail-fast » des variables d'environnement au démarrage.

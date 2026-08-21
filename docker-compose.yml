@@ -1,11 +1,14 @@
 # One-command build + run for the ASSPRO site.
 #
-#   1. cp .env.example .env   # then fill in the SMTP_* values
+#   1. cp .env.example .env   # then fill in RCS_API_KEY
 #   2. docker compose up -d --build
 #
 # The app listens on http://localhost:3000 and reports health via /api/health.
-# The container refuses to boot in production without valid SMTP config
+# The container refuses to boot in production without valid RCS config
 # (fail-fast, see src/instrumentation.ts) — the .env file is mandatory.
+#
+# Outgoing mail goes through Branchet's internal RCS service, so the container
+# must be able to reach it (see RCS_BASE_URL in .env.example).
 
 services:
   web:
@@ -37,7 +40,7 @@ services:
     image: asspro-website
     ports:
       - "3000:3000"
-    # Runtime config (SMTP_* / MAIL_FROM / CONTACT_TO / ADHESION_TO).
+    # Runtime config (RCS_* / CONTACT_TO / ADHESION_TO).
     env_file: .env
     restart: unless-stopped
     # HEALTHCHECK is inherited from the Dockerfile (wget /api/health).

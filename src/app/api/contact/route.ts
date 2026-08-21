@@ -48,14 +48,13 @@ export async function POST(request: Request) {
     );
   }
 
-  const { notification, confirmation } = buildContactEmails(parsed.data);
+  const { notification, confirmation } = buildContactEmails(parsed.data, CONTACT_TO());
 
   // The notification to ASSPRO is the critical send — fail the request if it
   // doesn't go through so the user knows to retry.
   try {
     await sendMail({
       to: CONTACT_TO(),
-      replyTo: parsed.data.email,
       ...notification,
     });
   } catch (err) {
@@ -72,7 +71,6 @@ export async function POST(request: Request) {
   try {
     await sendMail({
       to: parsed.data.email,
-      replyTo: CONTACT_TO(),
       ...confirmation,
     });
   } catch (err) {

@@ -1,55 +1,26 @@
-import nodemailer, { type Transporter } from "nodemailer";
 import type { ContactInput, AdhesionInput } from "./schemas";
+import { requireEnv } from "./env";
+import { sendViaRcs } from "./rcs";
 
 /**
- * SMTP mailer used by the contact & adhésion route handlers.
- * All credentials come from server-only environment variables (see .env.example).
+ * Envoi d'e-mails des formulaires contact & adhésion.
+ *
+ * Le transport est RCS, le service de notifications interne de Branchet (voir
+ * `rcs.ts`) ; sa configuration vient de variables d'environnement serveur (voir
+ * .env.example).
  */
-
-function requireEnv(name: string): string {
-  const value = process.env[name];
-  if (!value) {
-    throw new Error(`Variable d'environnement manquante : ${name}`);
-  }
-  return value;
-}
-
-let transporter: Transporter | null = null;
-
-function getTransport(): Transporter {
-  if (transporter) return transporter;
-
-  transporter = nodemailer.createTransport({
-    host: requireEnv("SMTP_HOST"),
-    port: Number(process.env.SMTP_PORT ?? 587),
-    secure: process.env.SMTP_SECURE === "true", // true for 465, false for 587
-    auth: {
-      user: requireEnv("SMTP_USER"),
-      pass: requireEnv("SMTP_PASS"),
-    },
-  });
-
-  return transporter;
-}
 
 interface MailInput {
   to: string;
   subject: string;
+  /** Variante texte brut, transmise dans `body`. */
   text: string;
+  /** Variante HTML, transmise dans `body_html` et rendue telle quelle. */
   html: string;
-  replyTo?: string;
 }
 
-export async function sendMail({ to, subject, text, html, replyTo }: MailInput) {
-  const transport = getTransport();
-  await transport.sendMail({
-    from: requireEnv("MAIL_FROM"),
-    to,
-    replyTo,
-    subject,
-    text,
-    html,
-  });
+export async function sendMail({ to, subject, text, html }: MailInput) {
+  await sendViaRcs({ to: [to], subject, body: text, body_html: html });
 }
 
 /** Destination inboxes (ADHESION_TO falls back to CONTACT_TO). */
@@ -88,8 +59,18 @@ function renderRows(fields: [string, string | undefined][]): {
 
 type EmailContent = { subject: string; text: string; html: string };
 
-/** Notification sent to ASSPRO + confirmation sent to the visitor. */
-export function buildContactEmails(data: ContactInput): {
+/**
+ * Notification sent to ASSPRO + confirmation sent to the visitor.
+ *
+ * `replyAddress` (the ASSPRO inbox) is rendered into the confirmation body:
+ * RCS sends from its own `noreply@` address and has no `replyTo`, so without it
+ * the visitor would have no way to answer. In the other direction the visitor's
+ * own address already appears in the notification's `Email` row.
+ */
+export function buildContactEmails(
+  data: ContactInput,
+  replyAddress: string
+): {
   notification: EmailContent;
   confirmation: EmailContent;
 } {
@@ -108,17 +89,27 @@ export function buildContactEmails(data: ContactInput): {
 
   const confirmation: EmailContent = {
     subject: "Nous avons bien reçu votre message – ASSPRO",
-    text: `Bonjour ${data.name},\n\nNous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.\n\nRécapitulatif :\nSujet : ${data.subject}\nMessage : ${data.message}\n\nCordialement,\nL'équipe ASSPRO`,
+    text: `Bonjour ${data.name},\n\nNous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.\n\nRécapitulatif :\nSujet : ${data.subject}\nMessage : ${data.message}\n\nPour toute question, écrivez-nous à ${replyAddress}.\n\nCordialement,\nL'équipe ASSPRO`,
     html: `<p>Bonjour ${escapeHtml(
       data.name
-    )},</p><p>Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.</p><p><strong>Récapitulatif :</strong></p>${rows.html}<p>Cordialement,<br/>L'équipe ASSPRO</p>`,
+    )},</p><p>Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.</p><p><strong>Récapitulatif :</strong></p>${
+      rows.html
+    }<p>Pour toute question, écrivez-nous à <a href="mailto:${escapeHtml(
+      replyAddress
+    )}">${escapeHtml(replyAddress)}</a>.</p><p>Cordialement,<br/>L'équipe ASSPRO</p>`,
   };
 
   return { notification, confirmation };
 }
 
-/** Notification sent to ASSPRO + confirmation sent to the applicant. */
-export function buildAdhesionEmails(data: AdhesionInput): {
+/**
+ * Notification sent to ASSPRO + confirmation sent to the applicant.
+ * `replyAddress` serves the same purpose as in `buildContactEmails`.
+ */
+export function buildAdhesionEmails(
+  data: AdhesionInput,
+  replyAddress: string
+): {
   notification: EmailContent;
   confirmation: EmailContent;
 } {
@@ -148,10 +139,12 @@ export function buildAdhesionEmails(data: AdhesionInput): {
 
   const confirmation: EmailContent = {
     subject: "Nous avons bien reçu votre demande d'adhésion – ASSPRO",
-    text: `Bonjour ${fullName},\n\nNous avons bien reçu votre demande d'adhésion. Nous l'examinerons et vous contacterons dans les meilleurs délais (sous 72h).\n\nCordialement,\nL'équipe ASSPRO`,
+    text: `Bonjour ${fullName},\n\nNous avons bien reçu votre demande d'adhésion. Nous l'examinerons et vous contacterons dans les meilleurs délais (sous 72h).\n\nPour toute question, écrivez-nous à ${replyAddress}.\n\nCordialement,\nL'équipe ASSPRO`,
     html: `<p>Bonjour ${escapeHtml(
       fullName
-    )},</p><p>Nous avons bien reçu votre demande d'adhésion. Nous l'examinerons et vous contacterons dans les meilleurs délais (sous 72h).</p><p>Cordialement,<br/>L'équipe ASSPRO</p>`,
+    )},</p><p>Nous avons bien reçu votre demande d'adhésion. Nous l'examinerons et vous contacterons dans les meilleurs délais (sous 72h).</p><p>Pour toute question, écrivez-nous à <a href="mailto:${escapeHtml(
+      replyAddress
+    )}">${escapeHtml(replyAddress)}</a>.</p><p>Cordialement,<br/>L'équipe ASSPRO</p>`,
   };
 
   return { notification, confirmation };
